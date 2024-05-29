@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import useInput from "../hooks/useInput";
 
 function CustomerInput({ createCustomer }) {
-  const [id, setId] = useInput("");
   const [customerName, setCustomerName] = useInput("");
   const [gender, setGender] = useInput("");
   const [address, setAddress] = useInput("");
@@ -14,12 +13,6 @@ function CustomerInput({ createCustomer }) {
 
   return (
     <form className="thread-input">
-      <input
-        type="text"
-        value={id}
-        onChange={setId}
-        placeholder="masukkan ID User"
-      />
       <input
         type="text"
         value={customerName}
@@ -57,7 +50,7 @@ function CustomerInput({ createCustomer }) {
       />
       <button
         type="submit"
-        onClick={() => createCustomer({ id, customerName, gender, address, city, province, phone })}
+        onClick={() => createCustomer({ customerName, gender, address, city, province, phone })}
       >
         Create
       </button>

@@ -4,6 +4,7 @@ import api from '../../utils/api';
 const ActionType = {
   RECEIVE_CUSTOMERS: 'RECEIVE_CUSTOMERS',
   CREATE_CUSTOMER: 'CREATE_CUSTOMER',
+  UPDATE_CUSTOMER: 'UPDATE_CUSTOMER'
 };
 
 function receiveCustomersActionCreator(customers) {
@@ -24,6 +25,15 @@ function createCustomerActionCreator(customer) {
   };
 }
 
+function updateCustomerActionCreator(customer) {
+  return {
+    type: ActionType.UPDATE_CUSTOMER,
+    payload: {
+      customer,
+    }
+  }
+}
+
 function asyncReceiveCustomers() {
   return async (dispatch) => {
     dispatch(showLoading());
@@ -37,12 +47,24 @@ function asyncReceiveCustomers() {
   };
 }
 
-function asyncCreateCustomer({ id, customerName, gender, address, city, province, phone }) {
+function asyncCreateCustomer({ customerName, gender, address, city, province, phone }) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
-      const customer = await api.createCustomer({ id, customerName, gender, address, city, province, phone });
+      const customer = await api.createCustomer({ customerName, gender, address, city, province, phone });
       dispatch(createCustomerActionCreator(customer));
+    } catch (error) {
+      alert(error.message);
+    }
+    dispatch(hideLoading());
+  };
+}
+function asyncUpdateCustomer({ customerId, customerName, gender, address, city, province, phone }) {
+  return async (dispatch) => {
+    dispatch(showLoading());
+    try {
+      const customer = await api.updateCustomerCustomer({ customerId, customerName, gender, address, city, province, phone });
+      dispatch(updateCustomerActionCreator(customer));
     } catch (error) {
       alert(error.message);
     }
@@ -55,5 +77,7 @@ export {
   receiveCustomersActionCreator,
   asyncReceiveCustomers,
   createCustomerActionCreator,
-  asyncCreateCustomer
+  asyncCreateCustomer,
+  updateCustomerActionCreator,
+  asyncUpdateCustomer
 };

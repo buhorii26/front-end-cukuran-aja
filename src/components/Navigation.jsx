@@ -34,6 +34,7 @@ function Navigation({ signOut }) {
         </li>
         <li>
           <img src={authUser.avatar} alt={authUser.id} title={authUser.name} />
+          <strong>{authUser.name}</strong>
           <BsBoxArrowRight
             size={30}
             type="button"

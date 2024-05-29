@@ -121,14 +121,13 @@ const api = (() => {
     return user;
   }
 
-  async function createCustomer({ id, customerName, gender, address, city, province, phone }) {
+  async function createCustomer({ customerName, gender, address, city, province, phone }) {
     const response = await _fetchWithAuth(`${BASE_URL}/customers`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        id,
         customerName,
         gender,
         address,
@@ -166,8 +165,8 @@ const api = (() => {
     return customers;
   }
 
-  async function getCustomerById(id) {
-    const response = await _fetchWithAuth(`${BASE_URL}/customers/${id}`);
+  async function getCustomerById(customerId) {
+    const response = await _fetchWithAuth(`${BASE_URL}/customers/${customerId}`);
 
     const responseJson = await response.json();
 
@@ -182,8 +181,8 @@ const api = (() => {
     return customer;
   }
 
-  async function updateCustomer(id) {
-    const response = await _fetchWithAuth(`${BASE_URL}/customers/${id}`);
+  async function updateCustomer(customerId) {
+    const response = await _fetchWithAuth(`${BASE_URL}/customers/${customerId}`);
 
     const responseJson = await response.json();
 
@@ -214,14 +213,13 @@ const api = (() => {
     return customer;
   }
 
-  async function createBarber({ id, barberName, gender, address, city, province, phone, experience, skills }) {
+  async function createBarber({ barberName, gender, address, city, province, phone, experience, skills }) {
     const response = await _fetchWithAuth(`${BASE_URL}/barbers`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        id,
         barberName,
         gender,
         address,

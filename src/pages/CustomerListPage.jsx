@@ -27,7 +27,7 @@ function CustomerListPage() {
   return (
     <>
       <Header />
-      <CustomerList customers={customers} /> {/* Pass customers as props */}
+      <CustomerList customers={customers} />
       <Footer />
     </>
   );
