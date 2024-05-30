@@ -4,6 +4,8 @@ import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import CreateCustomerPage from './pages/CreateCustomerPage';
 import CustomerListPage from './pages/CustomerListPage';
+import CreateBarberPage from './pages/CreateBarberPage';
+import BarberListPage from './pages/BarberListPage';
 
 
 
@@ -16,6 +18,8 @@ function App() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/customers" element={<CustomerListPage />} />
       <Route path="/customers/new" element={<CreateCustomerPage />} />
+      <Route path="/barbers" element={<BarberListPage />} />
+      <Route path="/barbers/new" element={<CreateBarberPage />} />
     </Routes>
   )
 }

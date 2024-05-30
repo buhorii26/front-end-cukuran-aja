@@ -2,17 +2,17 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { asyncCreateCustomer } from '../states/customers/action';
-import CustomerInput from '../components/CustomerInput';
+import { asyncCreateBarber } from "../states/barbers/action";
+import BarberInput from '../components/BarberInput';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-function CreateCustomerPage() {
+function CreateBarberPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const onCreateCustomer = ({ customerName, gender, address, city, province, phone }) => {
-    dispatch(asyncCreateCustomer({ customerName, gender, address, city, province, phone }));
-    navigate('/customers');
+  const onCreateBarber = ({ barberName, gender, address, city, province, phone, experience, skills }) => {
+    dispatch(asyncCreateBarber({ barberName, gender, address, city, province, phone, experience, skills }));
+    navigate('/barbers');
   };
   return (
     <>
@@ -21,11 +21,11 @@ function CreateCustomerPage() {
         <div className="add-thread-page__card">
           <h5 className="add-thread-page__h5">Buat Customer New</h5>
         </div>
-        <CustomerInput createCustomer={onCreateCustomer} />
+        <BarberInput createBarber={onCreateBarber} />
       </section>
       <Footer />
     </>
   );
 }
 
-export default CreateCustomerPage;
+export default CreateBarberPage;

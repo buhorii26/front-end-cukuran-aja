@@ -27,7 +27,10 @@ function Navigation({ signOut }) {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/customers">Customers</Link>
+          <Link to="/customers">CustomersList</Link>
+        </li>
+        <li>
+          <Link to="/barbers">BarbersList</Link>
         </li>
         <li>
           <button className="signOut" onClick={signOut}>
