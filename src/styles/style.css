@@ -176,8 +176,12 @@ header {
   margin-top: 8px;
 }
 
-.signOut:hover {
+.signOut {
+  font-size: 18px;
   cursor: pointer;
+}
+
+.signOut:hover {
   background-color: #dc6b19;
 }
 

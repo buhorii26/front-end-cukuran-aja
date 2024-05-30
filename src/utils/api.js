@@ -1,13 +1,14 @@
 const api = (() => {
   const BASE_URL = "http://localhost:3000/api/v1";
+  
+  function getAccessToken() {
+    return localStorage.getItem("accessToken");
+  }
 
   function putAccessToken(token) {
     return localStorage.setItem("accessToken", token);
   }
 
-  function getAccessToken() {
-    return localStorage.getItem("accessToken");
-  }
 
   async function _fetchWithAuth(url, options = {}) {
     return fetch(url, {

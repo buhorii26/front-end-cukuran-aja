@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
-import { BsBoxArrowRight } from "react-icons/bs";
+import { FiLogOut } from "react-icons/fi";
 
 function Navigation({ signOut }) {
   const { authUser = null } = useSelector((states) => states);
@@ -12,9 +12,6 @@ function Navigation({ signOut }) {
         <ul>
           <li>
             <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/customers">Customers</Link>
           </li>
           <li>
             <Link to="/login">Login</Link>
@@ -33,14 +30,16 @@ function Navigation({ signOut }) {
           <Link to="/customers">Customers</Link>
         </li>
         <li>
-          <img src={authUser.avatar} alt={authUser.id} title={authUser.name} />
-          <strong>{authUser.name}</strong>
-          <BsBoxArrowRight
-            size={30}
-            type="button"
-            onClick={signOut}
-            className="signOut"
-          />
+          <button className="signOut" onClick={signOut}>
+            <FiLogOut />
+            {/* <img
+              src={authUser.avatar}
+              alt={authUser.id}
+              title={authUser.name}
+              size={20}
+            /> */}
+            <strong>{authUser.name}</strong>
+          </button>
         </li>
       </ul>
     </nav>

@@ -24,6 +24,26 @@ function unsetAuthUserActionCreator() {
   };
 }
 
+function asyncCheckAuthUser() {
+  return async (dispatch) => {
+    dispatch(showLoading());
+    const token = api.getAccessToken();
+    if (token) {
+      try {
+        api.putAccessToken(token);
+        const authUser = await api.getOwnProfile();
+        dispatch(setAuthUserActionCreator(authUser));
+      } catch (error) {
+        console.error(error.message);
+        dispatch(unsetAuthUserActionCreator());
+      }
+    } else {
+      dispatch(unsetAuthUserActionCreator());
+    }
+    dispatch(hideLoading());
+  };
+}
+
 function asyncSetAuthUser({ email, password }) {
   return async (dispatch) => {
     dispatch(showLoading());
@@ -52,4 +72,5 @@ export {
   unsetAuthUserActionCreator,
   asyncSetAuthUser,
   asyncUnsetAuthUser,
+  asyncCheckAuthUser,
 };
