@@ -7,6 +7,8 @@ import Loading from '../components/Loading';
 import BarberList from "../components/BarberList";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Alert from 'react-bootstrap/Alert';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function BarberListPage() {
   const dispatch = useDispatch();
@@ -33,7 +35,9 @@ function BarberListPage() {
     return (
       <>
         <Header />
-        <p>Maaf anda belum login</p>
+        <div className="content">
+          <Alert variant="danger">Maaf anda belum login!</Alert>
+        </div>
         <Footer />
       </>
     );

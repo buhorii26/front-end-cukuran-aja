@@ -34,14 +34,8 @@ function Navigation({ signOut }) {
         </li>
         <li>
           <button className="signOut" onClick={signOut}>
-            <FiLogOut />
-            {/* <img
-              src={authUser.avatar}
-              alt={authUser.id}
-              title={authUser.name}
-              size={20}
-            /> */}
-            <strong>{authUser.name}</strong>
+            <FiLogOut size={20}/>
+            <strong>Logout</strong>
           </button>
         </li>
       </ul>

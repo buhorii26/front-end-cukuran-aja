@@ -2,6 +2,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Loading from "./Loading";
+import Alert from "react-bootstrap/Alert";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Main() {
   const { authUser } = useSelector((states) => states);
@@ -12,8 +14,8 @@ function Main() {
         <Loading />
         <main>
           <div className="content">
-            <h1>Daftar list Aplikasi</h1>
-            <p>Ini halaman belum login</p>
+            <h1>Selamat Datang!</h1>
+            <Alert variant="danger">Maaf anda belum login!</Alert>
           </div>
         </main>
       </>
@@ -24,9 +26,17 @@ function Main() {
       <Loading />
       <main>
         <div className="content">
-          <h1>Daftar list Aplikasi</h1>
-
-          <p>Ini halaman sudah login</p>
+          <h1>
+            Selamat Datang {''}
+            <img
+              src={authUser.avatar}
+              alt={authUser.id}
+              title={authUser.name}
+              className="user-avatar"
+            />
+            {authUser.name}!
+          </h1>
+          <Alert variant="success">Selamat anda sudah login!</Alert>
         </div>
       </main>
     </>

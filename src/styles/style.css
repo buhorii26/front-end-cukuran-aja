@@ -522,6 +522,12 @@ header {
   border-bottom: 1px solid #e0e0e0;
   margin-top: 16px;
 }
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
 /* Perangkat dengan lebar layar 1200px dan di bawahnya */
 @media screen and (max-width: 1200px) {
   main {

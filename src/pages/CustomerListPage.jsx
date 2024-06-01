@@ -7,6 +7,8 @@ import Loading from '../components/Loading';
 import CustomerList from "../components/CustomerList";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Alert from 'react-bootstrap/Alert';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function CustomerListPage() {
   const dispatch = useDispatch();
@@ -33,7 +35,9 @@ function CustomerListPage() {
     return (
       <>
         <Header />
-        <p>Maaf anda belum login</p>
+        <div className="content">
+          <Alert variant="danger">Maaf anda belum login!</Alert>
+        </div>
         <Footer />
       </>
     );
