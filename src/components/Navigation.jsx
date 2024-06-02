@@ -8,32 +8,52 @@ function Navigation({ signOut }) {
 
   if (authUser === null) {
     return (
-      <nav className="navbar">
-        <a href="/" className="navbar-logo"
-        ><img src="/assets/logo/logo_hitam.png" width="120px"
-      /></a>
-      <div className="navbar-list">
-        <Link to="/" id="home">Home</Link>
-        <Link to="/about" id="about">Tentang Kami</Link>
-        <Link to="/service" id="service">Pelayanan</Link>
-      </div>
+      <nav className="nav-list">
+        <ul>
+          <li>
+            <Link to="/" id="home">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" id="about">
+              Tentang Kami
+            </Link>
+          </li>
+          <li>
+            <Link to="/service" id="service">
+              Pelayanan
+            </Link>
+          </li>
+        </ul>
       </nav>
     );
   }
   return (
-    <nav className="navbar">
-      <a href="/" className="navbar-logo"
-        ><img src="/assets/logo/logo_hitam.png" width="120px"
-      /></a>
-      <div className="navbar-list">
-        <Link to="/">Home</Link>
-        <Link to="/about">Tentang Kami</Link>
-        <Link to="/service">Pelayanan</Link>
-        <button className="signOut" onClick={signOut}>
-            <FiLogOut size={20}/>
+    <nav className="nav-list">
+      <ul>
+        <li>
+          <Link to="/" id="home">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/about" id="about">
+            Tentang Kami
+          </Link>
+        </li>
+        <li>
+          <Link to="/service" id="service">
+            Pelayanan
+          </Link>
+        </li>
+        <li>
+          <button className="signOut" onClick={signOut}>
+            <FiLogOut size={20} />
             <strong>Logout</strong>
           </button>
-      </div>
+        </li>
+      </ul>
     </nav>
   );
 }

@@ -15,7 +15,7 @@ function About() {
             className="img-fluid"
           />
         </div>
-        <div className="content">
+        <div className="content-about">
           <h3>Apa itu Cukuran Aja?</h3>
           <p>
             Platform “Cukuran Aja” hadir sebagai solusi inovatif ditengah

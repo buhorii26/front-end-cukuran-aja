@@ -13,7 +13,11 @@ function Header() {
     navigate('/');
   };
   return (
-    <header>
+
+    <header className="navbar-container">
+      <div className="logo">
+        <img src="/assets/logo/logo_hitam.png" alt="Cukuran Aja" />
+      </div>
       <Navigation signOut={onSignOut}/>
     </header>
   );
