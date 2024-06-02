@@ -6,6 +6,8 @@ import CreateCustomerPage from './pages/CreateCustomerPage';
 import CustomerListPage from './pages/CustomerListPage';
 import CreateBarberPage from './pages/CreateBarberPage';
 import BarberListPage from './pages/BarberListPage';
+import AboutPage from './components/About';
+import ServicePage from './components/Service';
 
 
 
@@ -20,6 +22,9 @@ function App() {
       <Route path="/customers/new" element={<CreateCustomerPage />} />
       <Route path="/barbers" element={<BarberListPage />} />
       <Route path="/barbers/new" element={<CreateBarberPage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/service" element={<ServicePage />} />
+
     </Routes>
   )
 }

@@ -328,8 +328,7 @@ cursor: not-allowed;
   text-align: center;
 }
 .menu .row .menu-card img {
-  border-radius: 50%;
-  width: 50%;
+  width: 200px;
 }
 .menu .row .menu-card .menu-card-tittle {
   margin: 1rem auto 1rem;
