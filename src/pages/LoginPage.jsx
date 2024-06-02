@@ -1,5 +1,4 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { IoEarthOutline } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
 import LoginForm from '../components/LoginForm';
 import { asyncSetAuthUser } from '../states/authUser/action';
@@ -19,9 +18,6 @@ function LoginPage() {
     <>
       <Header />
       <section className="login-page">
-        <header className="login-page__hero">
-          <h1><IoEarthOutline /></h1>
-        </header>
         <article className="login-page__main">
           <h2>
             Login

@@ -1,6 +1,6 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { IoEarthOutline } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
 import RegisterForm from '../components/RegisterForm';
 import { asyncRegisterUser } from '../states/users/action';
@@ -19,19 +19,14 @@ function RegisterPage() {
     <>
       <Header />
       <section className="register-page">
-        <header className="register-page__hero">
-          <h1>
-            <IoEarthOutline />
-          </h1>
-        </header>
         <article className="register-page__main">
           <h2>Register</h2>
           <RegisterForm register={onRegister} />
 
           <p>
-            Already have an account?
+            Sudah Punya Akun?
             {' '}
-            <Link to="/">Login</Link>
+            <Link to="/login">Login</Link>
           </p>
         </article>
       </section>

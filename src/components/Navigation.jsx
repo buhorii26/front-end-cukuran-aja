@@ -10,7 +10,7 @@ function Navigation({ signOut }) {
     return (
       <nav className="navbar">
         <a href="/" className="navbar-logo"
-        ><img src="/assets/logo/logo_hitam.png" width="120px"
+        ><img src="/assets/logo/logo_hitam.png" width="150px"
       /></a>
       <div className="navbar-list">
         <Link to="/" id="home">Home</Link>
@@ -29,6 +29,8 @@ function Navigation({ signOut }) {
         <Link to="/">Home</Link>
         <Link to="/about">Tentang Kami</Link>
         <Link to="/service">Pelayanan</Link>
+          <Link to="/customers">CustomersList</Link>
+          <Link to="/barbers">BarbersList</Link>
         <button className="signOut" onClick={signOut}>
             <FiLogOut size={20}/>
             <strong>Logout</strong>
