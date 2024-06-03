@@ -6,8 +6,8 @@ import CreateCustomerPage from './pages/CreateCustomerPage';
 import CustomerListPage from './pages/CustomerListPage';
 import CreateBarberPage from './pages/CreateBarberPage';
 import BarberListPage from './pages/BarberListPage';
-import AboutPage from './components/About';
-import ServicePage from './components/Service';
+import AboutPage from './pages/AboutPage';
+import ServicePage from './pages/ServicePage';
 
 
 

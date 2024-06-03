@@ -13,9 +13,10 @@ function Navigation({ signOut }) {
         ><img src="/assets/logo/logo_hitam.png" width="150px"
       /></a>
       <div className="navbar-list">
-        <Link to="/" id="home">Home</Link>
-        <Link to="/about" id="about">Tentang Kami</Link>
-        <Link to="/service" id="service">Pelayanan</Link>
+        <Link to="/">Home</Link>
+        <Link to="/about">Tentang Kami</Link>
+        <Link to="/service">Pelayanan</Link>
+        <Link to="/login">Masuk</Link>
       </div>
       </nav>
     );

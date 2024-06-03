@@ -31,9 +31,9 @@ function CreateBarberPage() {
   return (
     <>
       <Header />
-      <section className="add-thread-page">
-        <div className="add-thread-page__card">
-          <h5 className="add-thread-page__h5">Buat Customer New</h5>
+      <section className="add-barber-page">
+        <div className="add-barber-page__card">
+          <h5 className="add-barber-page__h5">Buat Barber New</h5>
         </div>
         <BarberInput createBarber={onCreateBarber} />
       </section>

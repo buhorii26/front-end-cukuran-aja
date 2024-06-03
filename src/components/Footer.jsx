@@ -21,7 +21,7 @@ function Footer() {
         <div className="link">
         <Link to="/">Home</Link>
         <Link to="/about">Tentang Kami</Link>
-        <Link to="/services">Pelayanan</Link>
+        <Link to="/service">Pelayanan</Link>
         </div>
         <div className="credit">
           <p>

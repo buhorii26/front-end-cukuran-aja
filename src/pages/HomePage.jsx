@@ -5,8 +5,6 @@ import {  asyncCheckAuthUser } from '../states/authUser/action';
 import Loading from '../components/Loading';
 import Header from '../components/Header';
 import Main from '../components/Main';
-import About from '../components/About';
-import Service from '../components/Service';
 import Footer from '../components/Footer';
 
 function HomePage() {
@@ -28,8 +26,6 @@ function HomePage() {
     <>
       <Header />
       <Main />
-      <About />
-      <Service />
       <Footer />
     </>
   );

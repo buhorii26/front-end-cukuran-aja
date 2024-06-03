@@ -12,7 +12,7 @@ function CustomerInput({ createCustomer }) {
   const [phone, setPhone] = useInput("");
 
   return (
-    <form className="thread-input">
+    <form className="barber-input">
       <input
         type="text"
         value={customerName}

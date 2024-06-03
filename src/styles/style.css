@@ -104,8 +104,9 @@ body {
 .login-page,
 .register-page {
   display: grid;
+  justify-content: center;
   grid-template-columns: 1fr;
-  min-height: 100vh;
+  min-height: 120vh;
 }
 
 .login-page__hero,
@@ -128,9 +129,10 @@ body {
 }
 
 .login-page__main h2,
-.register-page h2 {
+.register-page__main h2 {
   font-weight: 300;
   font-size: 48px;
+  text-align: center;
 }
 
 .login-input input,
@@ -159,19 +161,52 @@ body {
   border-radius: 10px;
   cursor: pointer;
 }
-/* Add Barber */
-.add-thread-page {
-  margin-top: 8px;
+/* Add Customer */
+.add-customer-page {
+  padding: 8rem 7% 1.4rem;
+  margin-top: 80px;
+  gap: 2rem;
+  display: flex;
 }
 
-.add-thread-page__card {
+.add-customer-page__card {
   margin-bottom: 16px;
 }
 
-.add-thread-page__h5 {
+.add-customer-page__h5 {
   font-weight: "bold";
   margin-left: 8px;
   margin-top: 8px;
+}
+/* Add Barber */
+.add-barber-page {
+  padding: 8rem 7% 1.4rem;
+  margin-top: 80px;
+  gap: 2rem;
+  display: flex;
+}
+
+.add-barber-page__card {
+  margin-bottom: 16px;
+}
+
+.add-barber-page__h5 {
+  font-weight: "bold";
+  margin-left: 8px;
+  margin-top: 8px;
+}
+/* container authuser */
+.container-authuser {
+  display: flex;
+  padding: 8rem 7% 1.4rem;
+  margin-top: 55px;
+  justify-content: center;
+  text-align: center;
+}
+.alert {
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 /* Form Checkout */
 .form-container h5 {
@@ -267,25 +302,17 @@ cursor: not-allowed;
   text-decoration: none;
 }
 /*About Section*/
-.about,
-.menu,
-.products,
-.contact {
+.about {
   padding: 8rem 7% 1.4rem;
+  margin-top: 80px;
 }
-.about h2,
-.menu h2,
-.products h2,
-.contact h2 {
+.about h2 {
   color: var(--color);
   text-align: center;
   font-size: 2.6rem;
   margin-bottom: 3rem;
 }
-.about h2 span,
-.menu h2 span,
-.products h2 span,
-.contact h2 span {
+.about h2 span {
   color: var(--primary);
 }
 .about .row {
@@ -316,44 +343,61 @@ cursor: not-allowed;
   font-size: 1.4rem;
   line-height: 1.6;
 }
-
-/*Menu Section*/
-.menu h2,
-.contact h2 {
-  margin-bottom: 1rem;
-}
-.menu p,
-.products p,
-.contact p {
-  color: var(--color);
-  text-align: center;
-  max-width: 30rem;
-  margin: auto;
-  font-size: 1.4rem;
-  line-height: 1.6;
-}
-.menu .row {
+/* Card Container */
+.card-container {
+  padding: 8rem 7% 1.4rem;
+  margin-top: 80px;
+  gap: 2rem;
   display: flex;
-  flex-wrap: wrap;
-  margin-top: 5rem;
-  justify-content: center;
 }
-.menu .row .menu-card {
-  text-align: center;
+.card-container-role {
+  padding: 1.2rem;
+  display: flex;
 }
-.menu .row .menu-card img {
-  width: 200px;
+.card-container-role a{
+  text-decoration: none;
+  color: black;
 }
-.menu .row .menu-card .menu-card-tittle {
-  margin: 1rem auto 1rem;
+
+.card-container h2 {
   color: var(--color);
-  font-size: 1.4rem;
-  line-height: 0.5;
+  text-align: center;
+  font-size: 2.6rem;
+  align-items: center;
+  display: flex;
 }
-.menu .row .menu-card .menu-card-price {
-  color:var(--color);
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+.card-container h2 span {
+  color: var(--primary);
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 250px;
+  background-color: black;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.card h3 {
+  color: white;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: black;
+  border-radius: 10px;
+  background-color: var(--primary);
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
 }
 /*Product*/
 .products .row {
@@ -458,12 +502,19 @@ cursor: not-allowed;
   background-color: white;
   cursor: pointer;
 }
+/* Barber List */
+.barber-list {
+  padding: 11rem 7% 1.4rem 80px;
+}
+.barber-list ul {
+  display: flex;
+  border: 1px solid red;
+}
 /*Footer*/
 footer {
   background-color: var(--primary);
   text-align: center;
   padding: 1rem 0;
-  margin-top: 3rem;
 }
 
 footer .sosmed {
@@ -476,7 +527,7 @@ footer .sosmed a {
 footer .sosmed a:hover,
 .link a:hover,
 .credit a:hover {
-  color: var(--bg);
+  color: red;
 }
 footer .link {
   margin-bottom: 1.4rem;

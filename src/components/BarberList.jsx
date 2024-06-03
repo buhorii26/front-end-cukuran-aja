@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function BarberList({ barbers }) {
   return (
-    <div className="customer-list">
+    <div className="barber-list">
       <h2>Daftar Barber</h2>
       <ul>
         {barbers.map((barber) => (

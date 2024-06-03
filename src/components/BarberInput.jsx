@@ -14,7 +14,7 @@ function BarberInput({ createBarber }) {
   const [skills, setSkills] = useInput("");
 
   return (
-    <form className="thread-input">
+    <form className="barber-input">
       <input
         type="text"
         value={barberName}

@@ -31,9 +31,9 @@ function CreateCustomerPage() {
   return (
     <>
       <Header />
-      <section className="add-thread-page">
-        <div className="add-thread-page__card">
-          <h5 className="add-thread-page__h5">Buat Customer New</h5>
+      <section className="add-customer-page">
+        <div className="add-customer-page__card">
+          <h5 className="add-customer-page__h5">Buat Customer New</h5>
         </div>
         <CustomerInput createCustomer={onCreateCustomer} />
       </section>
