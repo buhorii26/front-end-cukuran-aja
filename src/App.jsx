@@ -5,7 +5,7 @@ import HomePage from './pages/HomePage';
 import CreateCustomerPage from './pages/CreateCustomerPage';
 import CustomerListPage from './pages/CustomerListPage';
 import CreateBarberPage from './pages/CreateBarberPage';
-import BarberListPage from './pages/BarberListPage';
+import DashboardCustomerPage from './pages/dashboard-customer/DashboardCustomerPage';
 import AboutPage from './pages/AboutPage';
 import ServicePage from './pages/ServicePage';
 
@@ -20,7 +20,7 @@ function App() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/customers" element={<CustomerListPage />} />
       <Route path="/customers/new" element={<CreateCustomerPage />} />
-      <Route path="/barbers" element={<BarberListPage />} />
+      <Route path="/customers/dashboard" element={<DashboardCustomerPage />} />
       <Route path="/barbers/new" element={<CreateBarberPage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/service" element={<ServicePage />} />

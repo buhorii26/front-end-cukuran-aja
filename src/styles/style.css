@@ -48,6 +48,7 @@ body {
 }
 .navbar .navbar-list a:hover {
   background-color: var(--primary);
+  transition: all 0.2s ease-in-out;
 }
 .navbar .navbar-list a::after {
   content: "";
@@ -66,6 +67,14 @@ body {
 }
 .navbar .navbar-extra a:hover {
   color: var(--primary);
+}
+.signOut:hover {
+  background-color: var(--primary);
+  margin: 0 1rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+  font-size: 1.6rem;
+  font-weight: 500;
 }
 #hamburger-menu {
   display: none;
@@ -178,6 +187,64 @@ body {
   margin-left: 8px;
   margin-top: 8px;
 }
+/* Add Barber Input */
+.barber-input input[type="text"],
+  .barber-input textarea {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--color);
+    border: 1px solid ;
+    padding: 8px;
+    width: 100%;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  
+  .barber-input textarea {
+    height: 150px;
+    resize: none;
+  }
+  
+  .barber-input button {
+    background-color: blue;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--background-color);
+    font-weight: 600;
+    font-size: 15px;
+    border: 2px solid black;
+    width: 100%;
+    padding: 8px;
+    cursor: pointer;
+    margin-bottom: 50px;
+  }
+/* Add Customer Input */
+.customer-input input[type="text"],
+  .customer-input textarea {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--color);
+    border: 1px solid ;
+    padding: 8px;
+    width: 100%;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  
+  .customer-input textarea {
+    height: 150px;
+    resize: none;
+  }
+  
+  .customer-input button {
+    background-color: blue;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--background-color);
+    font-weight: 600;
+    font-size: 15px;
+    border: 2px solid black;
+    width: 100%;
+    padding: 8px;
+    cursor: pointer;
+    margin-bottom: 50px;
+  }
 /* Add Barber */
 .add-barber-page {
   padding: 8rem 7% 1.4rem;
@@ -188,6 +255,7 @@ body {
 
 .add-barber-page__card {
   margin-bottom: 16px;
+  display: inline;
 }
 
 .add-barber-page__h5 {
@@ -501,6 +569,14 @@ cursor: not-allowed;
   color: black;
   background-color: white;
   cursor: pointer;
+}
+/* Customer List */
+.customer-list {
+  padding: 11rem 7% 1.4rem 80px;
+}
+.customer-list ul {
+  display: flex;
+  border: 1px solid red;
 }
 /* Barber List */
 .barber-list {

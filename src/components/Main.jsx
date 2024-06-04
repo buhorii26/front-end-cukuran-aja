@@ -3,11 +3,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Loading from "./Loading";
+import DashboardCustomerPage from "../pages/dashboard-customer/DashboardCustomerPage";
 import Alert from "react-bootstrap/Alert";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Main() {
   const { authUser } = useSelector((states) => states);
+  const { customers } = useSelector((states) => states);
   if (authUser === null) {
     return (
       <>
@@ -19,16 +21,17 @@ function Main() {
             </h1>
             <p>Platform Pangkas Rambut Anak Bangsa di Negara Jepang</p>
             <Link to="/login" className="cta">
-              Masuk
+              Login
             </Link>
           </div>
         </main>
       </>
     );
   }
-  return (
-    <>
-      <div className="container-authuser">
+  if (!customers || customers.length === 0) {
+    return (
+      <>
+        <div className="container-authuser">
         <h1>
           Selamat Datang {""}
           <img
@@ -62,6 +65,24 @@ function Main() {
           </p>
         </div>
       </div>
+      </>
+    );
+  }
+  return (
+    <>
+      <div className="container-authuser">
+        <h1>
+          Selamat Datang {""}
+          <img
+            src={authUser.avatar}
+            alt={authUser.id}
+            title={authUser.name}
+            className="user-avatar"
+          />
+          {authUser.name}!
+        </h1>
+      </div>
+      <DashboardCustomerPage />
     </>
   );
 }

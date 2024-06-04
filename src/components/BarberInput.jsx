@@ -19,7 +19,7 @@ function BarberInput({ createBarber }) {
         type="text"
         value={barberName}
         onChange={setBarberName}
-        placeholder="Masukkan nama barber"
+        placeholder="Masukkan nama mu"
       />
       <select onChange={setGender}>
         <option>--Pilih Jenis Kelamin--</option>
@@ -66,7 +66,7 @@ function BarberInput({ createBarber }) {
         type="submit"
         onClick={() => createBarber({ barberName, gender, address, city, province, phone, experience, skills })}
       >
-        Create
+        Save
       </button>
     </form>
   );

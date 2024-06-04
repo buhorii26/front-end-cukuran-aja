@@ -33,7 +33,7 @@ function CreateBarberPage() {
       <Header />
       <section className="add-barber-page">
         <div className="add-barber-page__card">
-          <h5 className="add-barber-page__h5">Buat Barber New</h5>
+          <h5 className="add-barber-page__h5">Isi biodata!</h5>
         </div>
         <BarberInput createBarber={onCreateBarber} />
       </section>
