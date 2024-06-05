@@ -1,16 +1,16 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { asyncReceiveBarbers } from "../states/barbers/action";
-import {  asyncCheckAuthUser } from '../states/authUser/action';
-import Loading from '../components/Loading';
-import BarberList from "../components/BarberList";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { asyncReceiveBarbers } from "../../states/barbers/action";
+import {  asyncCheckAuthUser } from '../../states/authUser/action';
+import Loading from '../../components/Loading';
+import BarberList from "../../components/BarberList";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import Alert from 'react-bootstrap/Alert';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function BarberListPage() {
+function DashboardCustomerPage() {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
   const { barbers } = useSelector((states) => states);
@@ -47,9 +47,8 @@ function BarberListPage() {
     <>
       <Header />
       <BarberList barbers={barbers} />
-      <Footer />
     </>
   );
 }
 
-export default BarberListPage;
+export default DashboardCustomerPage;

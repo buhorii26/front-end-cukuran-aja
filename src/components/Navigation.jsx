@@ -8,37 +8,33 @@ function Navigation({ signOut }) {
 
   if (authUser === null) {
     return (
-      <nav className="navigation">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        </ul>
+      <nav className="navbar">
+        <a href="/" className="navbar-logo"
+        ><img src="/assets/logo/logo_hitam.png" width="150px"
+      /></a>
+      <div className="navbar-list">
+        <Link to="/">Home</Link>
+        <Link to="/about">Tentang Kami</Link>
+        <Link to="/services">Pelayanan</Link>
+        <Link to="/login">Login</Link>
+      </div>
       </nav>
     );
   }
   return (
-    <nav className="navigation">
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/customers">CustomersList</Link>
-        </li>
-        <li>
-          <Link to="/barbers">BarbersList</Link>
-        </li>
-        <li>
-          <button className="signOut" onClick={signOut}>
+    <nav className="navbar">
+      <a href="/" className="navbar-logo"
+        ><img src="/assets/logo/logo_hitam.png" width="120px"
+      /></a>
+      <div className="navbar-list">
+        <Link to="/">Home</Link>
+        <Link to="/about">Tentang Kami</Link>
+        <Link to="/services">Pelayanan</Link>
+        <button className="signOut" onClick={signOut}>
             <FiLogOut size={20}/>
             <strong>Logout</strong>
           </button>
-        </li>
-      </ul>
+      </div>
     </nav>
   );
 }

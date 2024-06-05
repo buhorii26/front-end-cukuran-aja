@@ -2,20 +2,20 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { asyncCreateBarber } from "../states/barbers/action";
-import BarberInput from '../components/BarberInput';
+import { asyncCreateService } from "../states/services/action";
+import ServiceInput from '../components/ServiceInput';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Alert from 'react-bootstrap/Alert';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function CreateBarberPage() {
+function CreateServicePage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { authUser } = useSelector((states) => states);
-  const onCreateBarber = ({ barberName, gender, address, city, province, phone, experience, skills }) => {
-    dispatch(asyncCreateBarber({ barberName, gender, address, city, province, phone, experience, skills }));
-    navigate('/barbers');
+  const onCreateService = ({ serviceName, price }) => {
+    dispatch(asyncCreateService({ serviceName, price }));
+    navigate('/services');
   };
   if (authUser === null) {
     return (
@@ -33,13 +33,13 @@ function CreateBarberPage() {
       <Header />
       <section className="add-barber-page">
         <div className="add-barber-page__card">
-          <h5 className="add-barber-page__h5">Isi biodata!</h5>
+          <h5 className="add-barber-page__h5">Isi Pelayanan disini!</h5>
         </div>
-        <BarberInput createBarber={onCreateBarber} />
+        <ServiceInput createService={onCreateService} />
       </section>
       <Footer />
     </>
   );
 }
 
-export default CreateBarberPage;
+export default CreateServicePage;

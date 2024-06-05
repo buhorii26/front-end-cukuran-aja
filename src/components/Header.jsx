@@ -14,12 +14,6 @@ function Header() {
   };
   return (
     <header>
-      <div className="jumbotron">
-        <h1>Aplikasi Cukuran Aja</h1>
-        <p>
-          Sebuah aplikasi memudahkan pengguna untuk reversasi online barbershop.
-        </p>
-      </div>
       <Navigation signOut={onSignOut}/>
     </header>
   );

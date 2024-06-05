@@ -1,17 +1,16 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 function BarberList({ barbers }) {
   return (
-    <div className="customer-list">
+    <div className="barber-list">
       <h2>Daftar Barber</h2>
       <ul>
         {barbers.map((barber) => (
           <li key={barber.barberId}>
             <p>Nama: {barber.barberName}</p>
-            <p>Gender: {barber.gender}</p>
+            <p>Gender: {barber.gender || "Tidak Diketahui"}</p>
             <p>Alamat: {barber.address}</p>
             <p>Kota: {barber.city}</p>
             <p>Provinsi: {barber.province}</p>
@@ -21,7 +20,6 @@ function BarberList({ barbers }) {
           </li>
         ))}
       </ul>
-      <Link to="/barbers/new">Add Barbers</Link>
     </div>
   );
 }

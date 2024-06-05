@@ -12,12 +12,12 @@ function CustomerInput({ createCustomer }) {
   const [phone, setPhone] = useInput("");
 
   return (
-    <form className="thread-input">
+    <form className="customer-input">
       <input
         type="text"
         value={customerName}
         onChange={setCustomerName}
-        placeholder="Masukkan nama customer"
+        placeholder="Masukkan nama mu"
       />
       <select onChange={setGender}>
         <option>--Pilih Jenis Kelamin--</option>
@@ -52,7 +52,7 @@ function CustomerInput({ createCustomer }) {
         type="submit"
         onClick={() => createCustomer({ customerName, gender, address, city, province, phone })}
       >
-        Create
+        Save
       </button>
     </form>
   );
