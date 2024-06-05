@@ -47,7 +47,6 @@ function DashboardCustomerPage() {
     <>
       <Header />
       <BarberList barbers={barbers} />
-      <Footer />
     </>
   );
 }
