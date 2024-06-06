@@ -145,8 +145,9 @@ body {
 }
 
 .login-input input,
-.register-input input {
-  display: block;
+.register-input input,
+.register-input select {
+  display: flex;
   width: 100%;
   padding: 12px 8px;
   margin: 8px 0;
@@ -266,8 +267,7 @@ body {
 /* container authuser */
 .container-authuser {
   display: flex;
-  padding: 8rem 7% 1.4rem;
-  margin-top: 55px;
+  margin-top: 100px;
   justify-content: center;
   text-align: center;
 }
@@ -467,6 +467,9 @@ cursor: not-allowed;
 .card button:hover {
   opacity: 0.7;
 }
+.card p {
+  color: white;
+}
 /*Product*/
 .products .row {
   display: grid;
@@ -573,20 +576,14 @@ cursor: not-allowed;
 /* List */
 .customer-list,
 .service-list,
+.barber-list,
 .booking-list  {
-  padding: 11rem 7% 1.4rem 80px;
+  display: flex;
 }
 .customer-list,
+.barber-list,
 .service-list,
 .booking-list  ul {
-  display: flex;
-  border: 1px solid red;
-}
-/* Barber List */
-.barber-list {
-  padding: 5px;
-}
-.barber-list ul {
   display: flex;
   border: 1px solid red;
 }

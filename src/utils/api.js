@@ -20,7 +20,7 @@ const api = (() => {
     });
   }
 
-  async function register({ name, email, password }) {
+  async function register({ name, role, email, password }) {
     const response = await fetch(`${BASE_URL}/auth/register`, {
       method: "POST",
       headers: {
@@ -28,6 +28,7 @@ const api = (() => {
       },
       body: JSON.stringify({
         name,
+        role,
         email,
         password,
       }),

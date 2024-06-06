@@ -10,8 +10,8 @@ import Footer from '../components/Footer';
 function RegisterPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const onRegister = ({ name, email, password }) => {
-    dispatch(asyncRegisterUser({ name, email, password }));
+  const onRegister = ({ name, role, email, password }) => {
+    dispatch(asyncRegisterUser({ name, role, email, password }));
     navigate('/login');
   };
 

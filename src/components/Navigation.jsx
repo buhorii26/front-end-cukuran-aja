@@ -32,6 +32,8 @@ function Navigation({ signOut }) {
         <Link to="/services">Pelayanan</Link>
         <button className="signOut" onClick={signOut}>
             <FiLogOut size={20}/>
+            <strong>{authUser.name}</strong>
+            <strong>{authUser.role}</strong>
             <strong>Logout</strong>
           </button>
       </div>
