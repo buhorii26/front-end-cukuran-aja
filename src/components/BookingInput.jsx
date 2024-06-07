@@ -4,33 +4,32 @@ import PropTypes from "prop-types";
 import useInput from "../hooks/useInput";
 
 function BookingInput({ createBooking }) {
-  const [customerId, setCustomerId] = useInput("");
-  const [barberId, setBarberId] = useInput("");
-  const [serviceId, setServiceId] = useInput("");
+  const [customer, setCustomer] = useInput("");
+  const [barber, setBarber] = useInput("");
+  const [service, setService] = useInput("");
   const [date, setDate] = useInput("");
   const [time, setTime] = useInput("");
   const [place, setPlace] = useInput("");
-  const [price, setPrice] = useInput("");
   const [status, setStatus] = useInput("");
 
   return (
-    <form className="barber-input">
+    <form className="booking-input">
       <input
         type="text"
-        value={customerId}
-        onChange={setCustomerId}
+        value={customer}
+        onChange={setCustomer}
         placeholder="Masukkan id Customer"
       />
       <input
         type="text"
-        value={barberId}
-        onChange={setBarberId}
+        value={barber}
+        onChange={setBarber}
         placeholder="Masukkan id Barber"
       />
       <input
         type="text"
-        value={serviceId}
-        onChange={setServiceId}
+        value={service}
+        onChange={setService}
         placeholder="Masukkan id Service"
       />
       <input
@@ -47,12 +46,7 @@ function BookingInput({ createBooking }) {
         type="text"
         value={place}
         onChange={setPlace}
-      />
-      <input
-        type="text"
-        value={price}
-        onChange={setPrice}
-        placeholder="masukkan harga"
+        placeholder="Masukkan Tempat"
       />
       <input
         type="text"
@@ -62,7 +56,7 @@ function BookingInput({ createBooking }) {
       />
       <button
         type="submit"
-        onClick={() => createBooking({ customerId, barberId, serviceId, date, time, place, price, status })}
+        onClick={() => createBooking({ customer, barber, service, date, time, place, status })}
       >
         Save
       </button>

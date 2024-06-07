@@ -171,6 +171,10 @@ body {
   border-radius: 10px;
   cursor: pointer;
 }
+/* Detail Barber */
+.detailBarber-page {
+  margin-top: 220px;
+}
 /* Add Customer */
 .add-customer-page {
   padding: 8rem 7% 1.4rem;
@@ -188,64 +192,97 @@ body {
   margin-left: 8px;
   margin-top: 8px;
 }
+/* Booking Input */
+.booking-input {
+  margin-top: 10px;
+}
+.booking-input input[type="text"],
+input[type="date"],
+input[type="time"] {
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--color);
+  border: 1px solid;
+  padding: 8px;
+  width: 100%;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.booking-input textarea {
+  height: 150px;
+  resize: none;
+}
+
+.booking-input button {
+  background-color: blue;
+  font-family: "Open Sans", sans-serif;
+  color: var(--background-color);
+  font-weight: 600;
+  font-size: 15px;
+  border: 2px solid black;
+  width: 100%;
+  padding: 8px;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
 /* Add Barber Input */
 .barber-input input[type="text"],
-  .barber-input textarea {
-    font-family: 'Open Sans', sans-serif;
-    background-color: var(--color);
-    border: 1px solid ;
-    padding: 8px;
-    width: 100%;
-    font-size: 15px;
-    margin-bottom: 8px;
-  }
-  
-  .barber-input textarea {
-    height: 150px;
-    resize: none;
-  }
-  
-  .barber-input button {
-    background-color: blue;
-    font-family: 'Open Sans', sans-serif;
-    color: var(--background-color);
-    font-weight: 600;
-    font-size: 15px;
-    border: 2px solid black;
-    width: 100%;
-    padding: 8px;
-    cursor: pointer;
-    margin-bottom: 50px;
-  }
+.barber-input textarea {
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--color);
+  border: 1px solid;
+  padding: 8px;
+  width: 100%;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.barber-input textarea {
+  height: 150px;
+  resize: none;
+}
+
+.barber-input button {
+  background-color: blue;
+  font-family: "Open Sans", sans-serif;
+  color: var(--background-color);
+  font-weight: 600;
+  font-size: 15px;
+  border: 2px solid black;
+  width: 100%;
+  padding: 8px;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
 /* Add Customer Input */
 .customer-input input[type="text"],
-  .customer-input textarea {
-    font-family: 'Open Sans', sans-serif;
-    background-color: var(--color);
-    border: 1px solid ;
-    padding: 8px;
-    width: 100%;
-    font-size: 15px;
-    margin-bottom: 8px;
-  }
-  
-  .customer-input textarea {
-    height: 150px;
-    resize: none;
-  }
-  
-  .customer-input button {
-    background-color: blue;
-    font-family: 'Open Sans', sans-serif;
-    color: var(--background-color);
-    font-weight: 600;
-    font-size: 15px;
-    border: 2px solid black;
-    width: 100%;
-    padding: 8px;
-    cursor: pointer;
-    margin-bottom: 50px;
-  }
+.customer-input textarea {
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--color);
+  border: 1px solid;
+  padding: 8px;
+  width: 100%;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.customer-input textarea {
+  height: 150px;
+  resize: none;
+}
+
+.customer-input button {
+  background-color: blue;
+  font-family: "Open Sans", sans-serif;
+  color: var(--background-color);
+  font-weight: 600;
+  font-size: 15px;
+  border: 2px solid black;
+  width: 100%;
+  padding: 8px;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
 /* Add Barber */
 .add-barber-page {
   padding: 8rem 7% 1.4rem;
@@ -267,7 +304,7 @@ body {
 /* container authuser */
 .container-authuser {
   display: flex;
-  margin-top: 100px;
+  margin-top: 150px;
   justify-content: center;
   text-align: center;
 }
@@ -313,9 +350,8 @@ body {
   width: 70%;
 }
 .form-container .checkout-button.disabled {
-background-color: #999;
-cursor: not-allowed;
-
+  background-color: #999;
+  cursor: not-allowed;
 }
 /*Hero Section*/
 .hero {
@@ -413,8 +449,8 @@ cursor: not-allowed;
 }
 /* Card Container */
 .card-container {
-  padding: 8rem 7% 1.4rem;
-  margin-top: 80px;
+  padding: 5rem 7% 1.4rem;
+  margin-top: 100px;
   gap: 2rem;
   display: flex;
 }
@@ -422,7 +458,7 @@ cursor: not-allowed;
   padding: 1.2rem;
   display: flex;
 }
-.card-container-role a{
+.card-container-role a {
   text-decoration: none;
   color: black;
 }
@@ -439,7 +475,7 @@ cursor: not-allowed;
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 250px;
+  max-width: 2500px;
   background-color: black;
   margin: auto;
   text-align: center;
@@ -573,19 +609,30 @@ cursor: not-allowed;
   background-color: white;
   cursor: pointer;
 }
+/* Booking list */
+.booking-list {
+  margin-top: 200px;
+  justify-content: center;
+  display: flex;
+
+}
 /* List */
 .customer-list,
 .service-list,
-.barber-list,
-.booking-list  {
+.barber-list {
   display: flex;
+  margin: 20px;
 }
 .customer-list,
 .barber-list,
-.service-list,
-.booking-list  ul {
+.service-list {
   display: flex;
   border: 1px solid red;
+}
+.barber-list h2 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 /*Footer*/
 footer {

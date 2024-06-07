@@ -30,6 +30,7 @@ function Navigation({ signOut }) {
         <Link to="/">Home</Link>
         <Link to="/about">Tentang Kami</Link>
         <Link to="/services">Pelayanan</Link>
+        <Link to="/bookings">Bookings</Link>
         <button className="signOut" onClick={signOut}>
             <FiLogOut size={20}/>
             <strong>{authUser.name}</strong>

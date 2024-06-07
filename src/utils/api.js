@@ -267,15 +267,15 @@ const api = (() => {
 
     const responseJson = await response.json();
 
-    const { status, message } = responseJson;
+    const { status, message  } = responseJson;
 
     if (status !== 'success') {
       throw new Error(message);
     }
 
-    const { data: { barber } } = responseJson;
+    const { data: { detailBarber } } = responseJson;
 
-    return barber;
+    return detailBarber;
   }
 
   async function updateBarber(id) {
@@ -399,19 +399,19 @@ const api = (() => {
     return service;
   }
 
-  async function createBooking({ customerId, barberId, serviceId, date, time, price, status }) {
+  async function createBooking({ customer, barber, service, date, time, place, status }) {
     const response = await _fetchWithAuth(`${BASE_URL}/bookings`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        customerId,
-        barberId,
-        serviceId,
+        customer,
+        barber,
+        service,
         date,
         time,
-        price,
+        place,
         status,
       }),
     });

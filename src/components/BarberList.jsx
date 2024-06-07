@@ -2,14 +2,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Alert from "react-bootstrap/Alert";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function BarberList({ barbers }) {
+  const navigate = useNavigate();
+
+  const onBarberClick = (id) => {
+    navigate(`/barbers/${id}`);
+  };
+
+  const onBarberPress = (event, id) => {
+    if (event.key === "Enter" || event.key === " ") {
+      navigate(`/barbers/${id}`);
+    }
+  };
+
   const { authUser } = useSelector((states) => states);
   return (
     <>
-    <div className="container-authuser">
+      <div className="container-authuser">
         <h1>
           Selamat Datang {""}
           <img
@@ -25,23 +38,23 @@ function BarberList({ barbers }) {
         <Alert variant="success">Selamat anda sudah login!</Alert>
       </div>
       <div className="barber-list">
-      <h2>Daftar Barber</h2>
-      <ul className="card-container">
-        {barbers.map((barber) => (
-          <li key={barber.barberId} className="card">
-            <p>Nama: {barber.barberName}</p>
-            <p>Gender: {barber.gender || "Tidak Diketahui"}</p>
-            <p>Alamat: {barber.address}</p>
-            <p>Kota: {barber.city}</p>
-            <p>Provinsi: {barber.province}</p>
-            <p>Telepon: {barber.phone}</p>
-            <p>Experience: {barber.experience}</p>
-            <p>Skills: {barber.skills}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-    
+        <h2>Daftar Barber</h2>
+        <ul className="card-container">
+          {barbers.map((barber) => (
+            <li key={barber.id} className="card" role="button" tabIndex={0}>
+              <p>Nama: {barber.barberName}</p>
+              <p>Experience: {barber.experience}</p>
+              <p>Skills: {barber.skills}</p>
+              <button
+                onClick={() => onBarberClick(barber.id)}
+                onKeyDown={(event) => onBarberPress(event, barber.id)}
+              >
+                Detail
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }
@@ -49,7 +62,7 @@ function BarberList({ barbers }) {
 BarberList.propTypes = {
   barbers: PropTypes.arrayOf(
     PropTypes.shape({
-      barberId: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
       barberName: PropTypes.string.isRequired,
       gender: PropTypes.string.isRequired,
       address: PropTypes.string.isRequired,
