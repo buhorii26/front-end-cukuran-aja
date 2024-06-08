@@ -8,8 +8,9 @@ import CreateBarberPage from "./pages/CreateBarberPage";
 import CreateServicePage from "./pages/CreateServicePage";
 import DashboardCustomerPage from "./pages/dashboard-customer/DashboardCustomerPage";
 import AboutPage from "./pages/AboutPage";
-import ServicePage from "./pages/ServicePage";
+import ServicePage from "./pages/services/ServicePage";
 import DetailBarberPage from "./pages/dashboard-barber/DetailBarberPage";
+import DetailServicePage from "./pages/services/DetailServicePage";
 import CreateBookingPage from "./pages/bookings/CreateBookingPage";
 import BookingListPage from "./pages/bookings/BookingListPage";
 
@@ -29,6 +30,7 @@ function App() {
       <Route path="/services" element={<ServicePage />} />
       <Route path="/services/new" element={<CreateServicePage />} />
       <Route path="/barbers/:id" element={<DetailBarberPage />} />
+      <Route path="/services/:id" element={<DetailServicePage />} />
     </Routes>
   );
 }

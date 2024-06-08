@@ -336,7 +336,7 @@ const api = (() => {
   }
 
   async function getAllServices() {
-    const response = await _fetchWithAuth(`${BASE_URL}/services`);
+    const response = await fetch(`${BASE_URL}/services`);
 
     const responseJson = await response.json();
 
@@ -362,9 +362,9 @@ const api = (() => {
       throw new Error(message);
     }
 
-    const { data: { service } } = responseJson;
+    const { data: { detailService } } = responseJson;
 
-    return service;
+    return detailService;
   }
 
   async function updateService(id) {

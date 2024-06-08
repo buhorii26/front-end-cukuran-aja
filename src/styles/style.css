@@ -173,7 +173,11 @@ body {
 }
 /* Detail Barber */
 .detailBarber-page {
-  margin-top: 220px;
+  margin-top: 150px;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* Add Customer */
 .add-customer-page {
@@ -618,16 +622,11 @@ input[type="time"] {
 }
 /* List */
 .customer-list,
-.service-list,
-.barber-list {
-  display: flex;
-  margin: 20px;
-}
-.customer-list,
 .barber-list,
 .service-list {
   display: flex;
   border: 1px solid red;
+  margin: 20px;
 }
 .barber-list h2 {
   display: flex;

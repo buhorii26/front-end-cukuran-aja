@@ -2,18 +2,18 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncReceiveBarbers } from "../../states/barbers/action";
-import {  asyncCheckAuthUser } from '../../states/authUser/action';
-import Loading from '../../components/Loading';
+import { asyncCheckAuthUser } from "../../states/authUser/action";
+import Loading from "../../components/Loading";
 import BarberList from "../../components/BarberList";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import Alert from 'react-bootstrap/Alert';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Alert from "react-bootstrap/Alert";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function DashboardCustomerPage() {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
-  const { barbers } = useSelector((states) => states);
+  const { barbers, authUser } = useSelector((states) => states);
 
   useEffect(() => {
     dispatch(asyncReceiveBarbers());
@@ -46,6 +46,21 @@ function DashboardCustomerPage() {
   return (
     <>
       <Header />
+      <div className="container-authuser">
+        <h1>
+          Selamat Datang {""}
+          <img
+            src={authUser.avatar}
+            alt={authUser.id}
+            title={authUser.name}
+            className="user-avatar"
+          />
+          {authUser.name}!
+        </h1>
+      </div>
+      <div className="alert">
+        <Alert variant="success">Selamat anda sudah login!</Alert>
+      </div>
       <BarberList barbers={barbers} />
     </>
   );

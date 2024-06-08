@@ -1,10 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Alert from "react-bootstrap/Alert";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 function BarberList({ barbers }) {
   const navigate = useNavigate();
@@ -18,25 +15,8 @@ function BarberList({ barbers }) {
       navigate(`/barbers/${id}`);
     }
   };
-
-  const { authUser } = useSelector((states) => states);
   return (
     <>
-      <div className="container-authuser">
-        <h1>
-          Selamat Datang {""}
-          <img
-            src={authUser.avatar}
-            alt={authUser.id}
-            title={authUser.name}
-            className="user-avatar"
-          />
-          {authUser.name}!
-        </h1>
-      </div>
-      <div className="alert">
-        <Alert variant="success">Selamat anda sudah login!</Alert>
-      </div>
       <div className="barber-list">
         <h2>Daftar Barber</h2>
         <ul className="card-container">

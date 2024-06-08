@@ -31,18 +31,12 @@ function Main() {
   }
   if (authUser.role === "customer") {
     return (
-      <>
-        <h1>Ini halaman Dashboard Customer</h1>
         <DashboardCustomerPage />
-      </>
     );
   }
   if (authUser.role === "barber") {
     return (
-      <>
-        <h1>Ini halaman Dashboard Barber</h1>
         <DashboardBarberPage />
-      </>
     );
   }
   return (

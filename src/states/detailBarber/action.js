@@ -28,8 +28,8 @@ function asyncReceiveDetailBarber(id) {
     dispatch(cleardetailBarberActionCreator());
 
     try {
-      const barber = await api.getBarberById(id);
-      dispatch(receiveDetailBarberActionCreator(barber));
+      const detailBarber = await api.getBarberById(id);
+      dispatch(receiveDetailBarberActionCreator(detailBarber));
     } catch (error) {
       alert(error.message);
     }

@@ -5,7 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 
-function Detailbarber({ barber }) {
+function DetailBarber({ barber }) {
   if (!barber) {
     return (
       <>
@@ -36,7 +36,7 @@ function Detailbarber({ barber }) {
   );
 }
 
-Detailbarber.propTypes = {
+DetailBarber.propTypes = {
   barber: PropTypes.shape({
     id: PropTypes.string.isRequired,
     barberName: PropTypes.string.isRequired,
@@ -50,4 +50,4 @@ Detailbarber.propTypes = {
   }),
 };
 
-export default Detailbarber;
+export default DetailBarber;
