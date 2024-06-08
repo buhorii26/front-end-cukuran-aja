@@ -1,8 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
+import { postedAt } from "../utils/postedAt";
 
-function BookingList({ bookings }) {
+function BookingList({ bookings, createdAt }) {
   return (
     <>
       <h1 className="booking-list">Daftar List booking</h1>
@@ -16,6 +17,7 @@ function BookingList({ bookings }) {
             <p>Waktu: {booking.time}</p>
             <p>Waktu: {booking.place}</p>
             <p>Status: {booking.status}</p>
+            <p>Created At :{postedAt(createdAt)}</p>
           </li>
         ))}
       </ul>
@@ -42,6 +44,7 @@ BookingList.propTypes = {
       status: PropTypes.string.isRequired,
     })
   ).isRequired,
+  createdAt: PropTypes.string.isRequired,
 };
 
 export default BookingList;

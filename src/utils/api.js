@@ -352,7 +352,7 @@ const api = (() => {
   }
 
   async function getServiceById(id) {
-    const response = await _fetchWithAuth(`${BASE_URL}/service/${id}`);
+    const response = await _fetchWithAuth(`${BASE_URL}/services/${id}`);
 
     const responseJson = await response.json();
 

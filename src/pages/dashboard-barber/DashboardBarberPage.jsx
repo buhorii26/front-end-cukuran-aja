@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { asyncReceiveCustomers } from "../../states/customers/action";
+import { asyncReceiveBookings } from "../../states/bookings/action";
 import {  asyncCheckAuthUser } from '../../states/authUser/action';
 import Loading from '../../components/Loading';
-import CustomerList from "../../components/CustomerList";
+import BookingList from "../../components/BookingList";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Alert from 'react-bootstrap/Alert';
@@ -13,10 +13,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function DashboardBarberPage() {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
-  const { customers } = useSelector((states) => states);
+  const { bookings, authUser } = useSelector((states) => states);
 
   useEffect(() => {
-    dispatch(asyncReceiveCustomers());
+    dispatch(asyncReceiveBookings());
   }, [dispatch]);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function DashboardBarberPage() {
     return <Loading />;
   }
 
-  if (!customers || customers.length === 0) {
+  if (!bookings || bookings.length === 0) {
     return (
       <>
         <Header />
@@ -46,7 +46,22 @@ function DashboardBarberPage() {
   return (
     <>
       <Header />
-      <CustomerList customers={customers} />
+      <div className="container-authuser">
+        <h1>
+          Selamat Datang {""}
+          <img
+            src={authUser.avatar}
+            alt={authUser.id}
+            title={authUser.name}
+            className="user-avatar"
+          />
+          {authUser.name}!
+        </h1>
+      </div>
+      <div className="alert">
+        <Alert variant="success">Selamat anda sudah login!</Alert>
+      </div>
+      <BookingList bookings={bookings} />
     </>
   );
 }

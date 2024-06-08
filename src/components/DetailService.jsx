@@ -3,9 +3,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import Header from "./Header";
 import Footer from "./Footer";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function DetailService({ service }) {
+  const { authUser } = useSelector((states) => states);
   if (!service) {
     return (
       <>
@@ -15,16 +17,35 @@ function DetailService({ service }) {
       </>
     );
   }
+  if (authUser.role === 'barber') {
+    return (
+      <div className="barber-list">
+      <h2>Detail Pelayanan</h2>
+      <div className="card-container">
+        <img
+          src={`/assets/pelayanan/${service.serviceName}.png`}
+          alt={service.serviceName}
+          width="100px"
+        />
+        <p>Nama Pelayanan: {service.serviceName}</p>
+        <p>Price: {service.price}</p>
+        <p><Link to='/services/new'>Add Services</Link></p>
+      </div>
+    </div>
+    );
+  }
 
   return (
     <div className="barber-list">
       <h2>Detail Pelayanan</h2>
       <div className="card-container">
+        <img
+          src={`/assets/pelayanan/${service.serviceName}.png`}
+          alt={service.serviceName}
+          width="100px"
+        />
         <p>Nama Pelayanan: {service.serviceName}</p>
-        <p>Price: {service.price }</p>
-        <button>
-          <Link to="/services/new">Add Service</Link>
-        </button>
+        <p>Price: {service.price}</p>
       </div>
     </div>
   );
