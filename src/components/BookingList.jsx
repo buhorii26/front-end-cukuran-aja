@@ -10,9 +10,12 @@ function BookingList({ bookings }) {
       <ul className="card-container">
         {bookings.map((booking) => (
           <li key={booking.bookingId} className="card">
-            <p>Customer Name: {booking.customerName}</p>
-            <p>Barber Name: {booking.barberName}</p>
-            <p>Service Name: {booking.serviceName}</p>
+            <p>Customer Name: {booking.customer.customerName}</p>
+            <p>Customer ID: {booking.customer._id}</p>
+            <p>Barber Name: {booking.barber._id}</p>
+            <p>Barber ID: {booking.barber._id}</p>
+            <p>Service Name: {booking.service.serviceName}</p>
+            <p>Service ID: {booking.service._id}</p>
             <p>Tanggal: {booking.date}</p>
             <p>Waktu: {booking.time}</p>
             <p>Tempat: {booking.place}</p>
@@ -29,9 +32,18 @@ BookingList.propTypes = {
   bookings: PropTypes.arrayOf(
     PropTypes.shape({
       bookingId: PropTypes.string.isRequired,
-      customerName: PropTypes.string.isRequired,
-      barberName: PropTypes.string.isRequired,
-      serviceName: PropTypes.string.isRequired,
+      customer: PropTypes.shape({
+        customerName: PropTypes.string.isRequired,
+        _id: PropTypes.string.isRequired,
+      }).isRequired,
+      barber: PropTypes.shape({
+        barberName: PropTypes.string.isRequired,
+        _id: PropTypes.string.isRequired,
+      }).isRequired,
+      service: PropTypes.shape({
+        serviceName: PropTypes.string.isRequired,
+        _id: PropTypes.string.isRequired,
+      }).isRequired,
       date: PropTypes.string.isRequired,
       time: PropTypes.string.isRequired,
       place: PropTypes.string.isRequired,

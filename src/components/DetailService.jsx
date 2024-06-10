@@ -55,7 +55,7 @@ DetailService.propTypes = {
   service: PropTypes.shape({
     serviceId: PropTypes.string.isRequired,
     serviceName: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
   }),
 };
 

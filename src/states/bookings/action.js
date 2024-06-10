@@ -47,12 +47,12 @@ function asyncReceiveBookings() {
   };
 }
 
-function asyncCreateBooking({ customerId, barberId, serviceId, date, time, place, status }) {
+function asyncCreateBooking({ customer, barber, service, date, time, place, status }) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
-      const booking = await api.createBooking({ customerId, barberId, serviceId, date, time, place, status });
-      dispatch(createBookingActionCreator(booking));
+      const newBooking = await api.createBooking({ customer, barber, service, date, time, place, status });
+      dispatch(createBookingActionCreator(newBooking));
     } catch (error) {
       alert(error.message);
     }

@@ -1,17 +1,16 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import useInput from "../hooks/useInput";
 import api from '../utils/api';
 
 function BookingInput({ createBooking }) {
-  const [customerId, setCustomerId] = useState("");
-  const [barberId, setBarberId] = useState("");
-  const [serviceId, setServiceId] = useState("");
-  const [date, setDate] = useInput("");
-  const [time, setTime] = useInput("");
-  const [place, setPlace] = useInput("");
-  const [status, setStatus] = useInput("");
+  const [customer, setCustomer] = useState("");
+  const [barber, setBarber] = useState("");
+  const [service, setService] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [place, setPlace] = useState("");
+  const [status, setStatus] = useState("");
 
   const [customers, setCustomers] = useState([]);
   const [barbers, setBarbers] = useState([]);
@@ -38,12 +37,18 @@ function BookingInput({ createBooking }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    createBooking({ customerId, barberId, serviceId, date, time, place, status });
+
+    if (!customer || !barber || !service || !date || !time || !place || !status) {
+      alert("Semua field harus diisi!");
+      return;
+    }
+
+    createBooking({ customer, barber, service, date, time, place, status });
   };
 
   return (
     <form className="booking-input" onSubmit={handleSubmit}>
-      <select value={customerId} onChange={(e) => setCustomerId(e.target.value)}>
+      <select value={customer} onChange={(e) => setCustomer(e.target.value)} required>
         <option value="">Pilih Customer</option>
         {customers.map(customer => (
           <option key={customer.customerId} value={customer.customerId}>
@@ -51,7 +56,7 @@ function BookingInput({ createBooking }) {
           </option>
         ))}
       </select>
-      <select value={barberId} onChange={(e) => setBarberId(e.target.value)}>
+      <select value={barber} onChange={(e) => setBarber(e.target.value)} required>
         <option value="">Pilih Barber</option>
         {barbers.map(barber => (
           <option key={barber.barberId} value={barber.barberId}>
@@ -59,7 +64,7 @@ function BookingInput({ createBooking }) {
           </option>
         ))}
       </select>
-      <select value={serviceId} onChange={(e) => setServiceId(e.target.value)}>
+      <select value={service} onChange={(e) => setService(e.target.value)} required>
         <option value="">Pilih Service</option>
         {services.map(service => (
           <option key={service.serviceId} value={service.serviceId}>
@@ -70,24 +75,28 @@ function BookingInput({ createBooking }) {
       <input
         type="date"
         value={date}
-        onChange={setDate}
+        onChange={(e) => setDate(e.target.value)}
+        required
       />
       <input
         type="time"
         value={time}
-        onChange={setTime}
+        onChange={(e) => setTime(e.target.value)}
+        required
       />
       <input
         type="text"
         value={place}
-        onChange={setPlace}
+        onChange={(e) => setPlace(e.target.value)}
         placeholder="Masukkan Tempat"
+        required
       />
       <input
         type="text"
         value={status}
-        onChange={setStatus}
-        placeholder="Masukkan status"
+        onChange={(e) => setStatus(e.target.value)}
+        placeholder="Masukkan Status"
+        required
       />
       <button type="submit">
         Order
