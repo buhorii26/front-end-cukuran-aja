@@ -28,7 +28,7 @@ function Service({ services }) {
           <span>Pelayanan </span>&nbsp;Kami
         </h2>
         {services.map((service) => (
-          <div className="card" key={service.id}>
+          <div className="card" key={service.serviceId}>
             <img
               src={`/assets/pelayanan/${service.serviceName}.png`}
               alt={service.serviceName}
@@ -36,8 +36,8 @@ function Service({ services }) {
             <h3>-{service.serviceName}-</h3>
             <p>
               <button
-                onClick={() => onServiceClick(service.id)}
-                onKeyDown={(event) => onServicePress(event, service.id)}
+                onClick={() => onServiceClick(service.serviceId)}
+                onKeyDown={(event) => onServicePress(event, service.serviceId)}
               >
                 Detail
               </button>
@@ -51,9 +51,9 @@ function Service({ services }) {
 Service.propTypes = {
   services: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      serviceId: PropTypes.string.isRequired,
       serviceName: PropTypes.string.isRequired,
-      price: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
     })
   ).isRequired,
 };

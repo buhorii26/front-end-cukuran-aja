@@ -21,13 +21,13 @@ function BarberList({ barbers }) {
         <h2>Daftar Barber</h2>
         <ul className="card-container">
           {barbers.map((barber) => (
-            <li key={barber.id} className="card" role="button" tabIndex={0}>
+            <li key={barber.barberId} className="card" role="button" tabIndex={0}>
               <p>Nama: {barber.barberName}</p>
               <p>Experience: {barber.experience}</p>
               <p>Skills: {barber.skills}</p>
               <button
-                onClick={() => onBarberClick(barber.id)}
-                onKeyDown={(event) => onBarberPress(event, barber.id)}
+                onClick={() => onBarberClick(barber.barberId)}
+                onKeyDown={(event) => onBarberPress(event, barber.barberId)}
               >
                 Detail
               </button>
@@ -42,7 +42,7 @@ function BarberList({ barbers }) {
 BarberList.propTypes = {
   barbers: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      barberId: PropTypes.string.isRequired,
       barberName: PropTypes.string.isRequired,
       gender: PropTypes.string.isRequired,
       address: PropTypes.string.isRequired,

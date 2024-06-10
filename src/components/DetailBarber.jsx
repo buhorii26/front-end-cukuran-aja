@@ -38,7 +38,7 @@ function DetailBarber({ barber }) {
 
 DetailBarber.propTypes = {
   barber: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    barberId: PropTypes.string.isRequired,
     barberName: PropTypes.string.isRequired,
     gender: PropTypes.string,
     address: PropTypes.string.isRequired,

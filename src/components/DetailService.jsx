@@ -53,7 +53,7 @@ function DetailService({ service }) {
 
 DetailService.propTypes = {
   service: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    serviceId: PropTypes.string.isRequired,
     serviceName: PropTypes.string.isRequired,
     price: PropTypes.string.isRequired,
   }),
