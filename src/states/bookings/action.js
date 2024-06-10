@@ -31,7 +31,7 @@ function updateBookingActionCreator(booking) {
     payload: {
       booking,
     }
-  }
+  };
 }
 
 function asyncReceiveBookings() {
@@ -47,23 +47,24 @@ function asyncReceiveBookings() {
   };
 }
 
-function asyncCreateBooking({ customerId, barberId, serviceId, date, time, price, status }) {
+function asyncCreateBooking({ customer, barber, service, date, time, place, status }) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
-      const booking = await api.createBooking({ customerId, barberId, serviceId, date, time, price, status });
-      dispatch(createBookingActionCreator(booking));
+      const newBooking = await api.createBooking({ customer, barber, service, date, time, place, status });
+      dispatch(createBookingActionCreator(newBooking));
     } catch (error) {
       alert(error.message);
     }
     dispatch(hideLoading());
   };
 }
-function asyncUpdateBooking({ customerId, barberId, serviceId, date, time, price, status }) {
+
+function asyncUpdateBooking({ bookingId, customer, barber, service, date, time, place, status }) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
-      const booking = await api.updateBooking({ customerId, barberId, serviceId, date, time, price, status });
+      const booking = await api.updateBooking(bookingId, { customer, barber, service, date, time, place, status });
       dispatch(updateBookingActionCreator(booking));
     } catch (error) {
       alert(error.message);

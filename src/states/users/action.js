@@ -49,11 +49,11 @@ function asyncUpdateUser({name, email}) {
   }
 }
 
-function asyncRegisterUser({ name, email, password }) {
+function asyncRegisterUser({ name, role, email, password }) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
-      await api.register({ name, email, password });
+      await api.register({ name, role, email, password });
     } catch (error) {
       alert(error.message);
     }

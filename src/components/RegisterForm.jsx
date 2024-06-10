@@ -5,6 +5,7 @@ import useInput from '../hooks/useInput';
 
 function RegisterForm({ register }) {
   const [name, onNameChange] = useInput('');
+  const [role, onRoleChange] = useInput('');
   const [email, onEmailChange] = useInput('');
   const [password, onPasswordChange] = useInput('');
 
@@ -20,6 +21,11 @@ function RegisterForm({ register }) {
         placeholder="Name"
         required
       />
+      <select onChange={onRoleChange}>
+        <option>--Pilih Role--</option>
+        <option value="customer">Customer</option>
+        <option value="barber">Barber</option>
+      </select>
       <input
         type="text"
         name="email"
@@ -42,7 +48,7 @@ function RegisterForm({ register }) {
       />
       <button
         type="button"
-        onClick={() => register({ name, email, password })}
+        onClick={() => register({ name, email, password, role })}
       >
         Register
       </button>

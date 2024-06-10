@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { FiLogOut } from "react-icons/fi";
 
 function Navigation({ signOut }) {
-  const { authUser = null } = useSelector((states) => states);
+  const { authUser } = useSelector((states) => states);
 
   if (authUser === null) {
     return (
@@ -21,6 +21,24 @@ function Navigation({ signOut }) {
       </nav>
     );
   }
+  if (authUser.role === 'barber') {
+    return (
+      <nav className="navbar">
+        <a href="/" className="navbar-logo"
+        ><img src="/assets/logo/logo_hitam.png" width="150px"
+      /></a>
+      <div className="navbar-list">
+        <Link to="/">Home</Link>
+        <Link to="/about">Tentang Kami</Link>
+        <Link to="/services">Pelayanan</Link>
+        <button className="signOut" onClick={signOut}>
+            <FiLogOut size={20}/>
+            <strong>Logout</strong>
+          </button>
+      </div>
+      </nav>
+    );
+  }
   return (
     <nav className="navbar">
       <a href="/" className="navbar-logo"
@@ -30,6 +48,7 @@ function Navigation({ signOut }) {
         <Link to="/">Home</Link>
         <Link to="/about">Tentang Kami</Link>
         <Link to="/services">Pelayanan</Link>
+        <Link to="/bookings">Bookings</Link>
         <button className="signOut" onClick={signOut}>
             <FiLogOut size={20}/>
             <strong>Logout</strong>

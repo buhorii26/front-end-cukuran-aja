@@ -1,23 +1,19 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { asyncReceiveBarbers } from "../../states/barbers/action";
+import { asyncReceiveBookings } from "../../states/bookings/action";
 import { asyncCheckAuthUser } from "../../states/authUser/action";
 import Loading from "../../components/Loading";
-import BarberList from "../../components/BarberList";
+import BookingList from "../../components/BookingList";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Alert from "react-bootstrap/Alert";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function DashboardCustomerPage() {
+function BookingListPage() {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
-  const { barbers, authUser } = useSelector((states) => states);
-
-  useEffect(() => {
-    dispatch(asyncReceiveBarbers());
-  }, [dispatch]);
+  const bookings = useSelector((state) => state.bookings);
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -27,11 +23,15 @@ function DashboardCustomerPage() {
     checkAuth();
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(asyncReceiveBookings());
+  }, [dispatch]);
+
   if (isLoading) {
     return <Loading />;
   }
 
-  if (!barbers || barbers.length === 0) {
+  if (!bookings || bookings.length === 0) {
     return (
       <>
         <Header />
@@ -46,24 +46,10 @@ function DashboardCustomerPage() {
   return (
     <>
       <Header />
-      <div className="container-authuser">
-        <h1>
-          Selamat Datang {""}
-          <img
-            src={authUser.avatar}
-            alt={authUser.id}
-            title={authUser.name}
-            className="user-avatar"
-          />
-          {authUser.name}!
-        </h1>
-      </div>
-      <div className="alert">
-        <Alert variant="success">Selamat anda sudah login!</Alert>
-      </div>
-      <BarberList barbers={barbers} />
+      <BookingList bookings={bookings} />
+      <Footer />
     </>
   );
 }
 
-export default DashboardCustomerPage;
+export default BookingListPage;

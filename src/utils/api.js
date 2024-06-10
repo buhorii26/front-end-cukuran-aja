@@ -20,7 +20,7 @@ const api = (() => {
     });
   }
 
-  async function register({ name, email, password }) {
+  async function register({ name, role, email, password }) {
     const response = await fetch(`${BASE_URL}/auth/register`, {
       method: "POST",
       headers: {
@@ -28,6 +28,7 @@ const api = (() => {
       },
       body: JSON.stringify({
         name,
+        role,
         email,
         password,
       }),
@@ -166,8 +167,8 @@ const api = (() => {
     return customers;
   }
 
-  async function getCustomerById(customerId) {
-    const response = await _fetchWithAuth(`${BASE_URL}/customers/${customerId}`);
+  async function getCustomerById(id) {
+    const response = await _fetchWithAuth(`${BASE_URL}/customers/${id}`);
 
     const responseJson = await response.json();
 
@@ -266,15 +267,15 @@ const api = (() => {
 
     const responseJson = await response.json();
 
-    const { status, message } = responseJson;
+    const { status, message  } = responseJson;
 
     if (status !== 'success') {
       throw new Error(message);
     }
 
-    const { data: { barber } } = responseJson;
+    const { data: { detailBarber } } = responseJson;
 
-    return barber;
+    return detailBarber;
   }
 
   async function updateBarber(id) {
@@ -335,7 +336,7 @@ const api = (() => {
   }
 
   async function getAllServices() {
-    const response = await _fetchWithAuth(`${BASE_URL}/services`);
+    const response = await fetch(`${BASE_URL}/services`);
 
     const responseJson = await response.json();
 
@@ -351,7 +352,7 @@ const api = (() => {
   }
 
   async function getServiceById(id) {
-    const response = await _fetchWithAuth(`${BASE_URL}/service/${id}`);
+    const response = await _fetchWithAuth(`${BASE_URL}/services/${id}`);
 
     const responseJson = await response.json();
 
@@ -361,9 +362,9 @@ const api = (() => {
       throw new Error(message);
     }
 
-    const { data: { service } } = responseJson;
+    const { data: { detailService } } = responseJson;
 
-    return service;
+    return detailService;
   }
 
   async function updateService(id) {
@@ -398,19 +399,19 @@ const api = (() => {
     return service;
   }
 
-  async function createBooking({ customerId, barberId, serviceId, date, time, price, status }) {
+  async function createBooking({ customer, barber, service, date, time, place, status }) {
     const response = await _fetchWithAuth(`${BASE_URL}/bookings`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        customerId,
-        barberId,
-        serviceId,
+        customer,
+        barber,
+        service,
         date,
         time,
-        price,
+        place,
         status,
       }),
     });
@@ -419,7 +420,7 @@ const api = (() => {
 
     const { success, message } = responseJson;
 
-    if (success !== 'success') {
+    if (success !== true) {
       throw new Error(message);
     }
 

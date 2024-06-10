@@ -7,7 +7,9 @@ function servicesReducer(services = [], action = {}) {
       case ActionType.CREATE_SERVICE:
         return [action.payload.services, ...services];
       case ActionType.UPDATE_BARBER:
-        return [action.payload.services, ...services];
+        return services.map(service => 
+          service.id === action.payload.service.id ? action.payload.service : service
+        );
     default:
       return services;
   }

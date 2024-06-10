@@ -2,19 +2,19 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { asyncCreateBooking } from "../states/bookings/action";
-import BookingInput from '../components/BookingInput';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import { asyncCreateBooking } from '../../states/bookings/action';
+import BookingInput from '../../components/BookingInput';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import Alert from 'react-bootstrap/Alert';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function CreateBookingPage() {
+function CreateBarberPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { authUser } = useSelector((states) => states);
-  const onCreateBooking = ({ customerId, barberId, serviceId, date, time, price, status }) => {
-    dispatch(asyncCreateBooking({ customerId, barberId, serviceId, date, time, price, status }));
+  const onCreateBooking = ({ customer, barber, service, date, time, place, status }) => {
+    dispatch(asyncCreateBooking({ customer, barber, service, date, time, place, status }));
     navigate('/bookings');
   };
   if (authUser === null) {
@@ -33,7 +33,7 @@ function CreateBookingPage() {
       <Header />
       <section className="add-barber-page">
         <div className="add-barber-page__card">
-          <h5 className="add-barber-page__h5">Isi Booking!</h5>
+          <h5 className="add-barber-page__h5">Order Booking!</h5>
         </div>
         <BookingInput createBooking={onCreateBooking} />
       </section>
@@ -42,4 +42,4 @@ function CreateBookingPage() {
   );
 }
 
-export default CreateBookingPage;
+export default CreateBarberPage;

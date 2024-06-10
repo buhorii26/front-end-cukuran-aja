@@ -1,22 +1,22 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { asyncReceiveBarbers } from "../../states/barbers/action";
-import { asyncCheckAuthUser } from "../../states/authUser/action";
-import Loading from "../../components/Loading";
-import BarberList from "../../components/BarberList";
+import { asyncReceiveBookings } from "../../states/bookings/action";
+import {  asyncCheckAuthUser } from '../../states/authUser/action';
+import Loading from '../../components/Loading';
+import BookingList from "../../components/BookingList";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import Alert from "react-bootstrap/Alert";
-import "bootstrap/dist/css/bootstrap.min.css";
+import Alert from 'react-bootstrap/Alert';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function DashboardCustomerPage() {
+function DashboardBarberPage() {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
-  const { barbers, authUser } = useSelector((states) => states);
+  const { bookings, authUser } = useSelector((states) => states);
 
   useEffect(() => {
-    dispatch(asyncReceiveBarbers());
+    dispatch(asyncReceiveBookings());
   }, [dispatch]);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function DashboardCustomerPage() {
     return <Loading />;
   }
 
-  if (!barbers || barbers.length === 0) {
+  if (!bookings || bookings.length === 0) {
     return (
       <>
         <Header />
@@ -61,9 +61,9 @@ function DashboardCustomerPage() {
       <div className="alert">
         <Alert variant="success">Selamat anda sudah login!</Alert>
       </div>
-      <BarberList barbers={barbers} />
+      <BookingList bookings={bookings} />
     </>
   );
 }
 
-export default DashboardCustomerPage;
+export default DashboardBarberPage;

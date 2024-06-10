@@ -1,26 +1,41 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 function BarberList({ barbers }) {
+  const navigate = useNavigate();
+
+  const onBarberClick = (id) => {
+    navigate(`/barbers/${id}`);
+  };
+
+  const onBarberPress = (event, id) => {
+    if (event.key === "Enter" || event.key === " ") {
+      navigate(`/barbers/${id}`);
+    }
+  };
   return (
-    <div className="barber-list">
-      <h2>Daftar Barber</h2>
-      <ul>
-        {barbers.map((barber) => (
-          <li key={barber.barberId}>
-            <p>Nama: {barber.barberName}</p>
-            <p>Gender: {barber.gender || "Tidak Diketahui"}</p>
-            <p>Alamat: {barber.address}</p>
-            <p>Kota: {barber.city}</p>
-            <p>Provinsi: {barber.province}</p>
-            <p>Telepon: {barber.phone}</p>
-            <p>Experience: {barber.experience}</p>
-            <p>Skills: {barber.skills}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <div className="barber-list">
+        <h2>Daftar Barber</h2>
+        <ul className="card-container">
+          {barbers.map((barber) => (
+            <li key={barber.barberId} className="card" role="button" tabIndex={0}>
+              <p>Nama: {barber.barberName}</p>
+              <p>Experience: {barber.experience}</p>
+              <p>Skills: {barber.skills}</p>
+              <button
+                onClick={() => onBarberClick(barber.barberId)}
+                onKeyDown={(event) => onBarberPress(event, barber.barberId)}
+              >
+                Detail
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }
 
