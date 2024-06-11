@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { asyncReceiveBarbers } from "../../states/barbers/action";
 import { asyncCheckAuthUser } from "../../states/authUser/action";
 import Loading from "../../components/Loading";
+import { Link } from "react-router-dom";
 import BarberList from "../../components/BarberList";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -61,6 +62,7 @@ function DashboardCustomerPage() {
       <div className="alert">
         <Alert variant="success">Selamat anda sudah login!</Alert>
       </div>
+      <h1>Isi biodata <Link to='/customers/new'>disini</Link></h1>
       <BarberList barbers={barbers} />
     </>
   );

@@ -60,11 +60,11 @@ function asyncCreateBooking({ customer, barber, service, date, time, place, stat
   };
 }
 
-function asyncUpdateBooking({ bookingId, customer, barber, service, date, time, place, status }) {
+function asyncUpdateBooking({ bookingId, customerId, barberId, serviceId, date, time, place, status }) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
-      const booking = await api.updateBooking(bookingId, { customer, barber, service, date, time, place, status });
+      const booking = await api.updateBooking(bookingId, { customerId, barberId, serviceId, date, time, place, status });
       dispatch(updateBookingActionCreator(booking));
     } catch (error) {
       alert(error.message);

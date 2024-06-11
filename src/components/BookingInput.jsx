@@ -35,15 +35,19 @@ function BookingInput({ createBooking }) {
     fetchData();
   }, []);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (!customer || !barber || !service || !date || !time || !place || !status) {
       alert("Semua field harus diisi!");
       return;
     }
-
-    createBooking({ customer, barber, service, date, time, place, status });
+    try {
+      await createBooking({ customer, barber, service, date, time, place, status });
+      alert("Booking berhasil dibuat");
+    } catch (error) {
+      alert(`Error: ${error.message}`);
+    }
   };
 
   return (

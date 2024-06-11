@@ -1,13 +1,19 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
 function BarberList({ barbers }) {
+  const { customers } = useSelector((states) => states);
   const navigate = useNavigate();
 
   const onBarberClick = (id) => {
-    navigate(`/barbers/${id}`);
+    if (!customers || customers.length === 0) {
+      alert("Maaf anda belum isi biodata!");
+    } else {
+      navigate(`/barbers/${id}`);
+    }
   };
 
   const onBarberPress = (event, id) => {
@@ -21,7 +27,12 @@ function BarberList({ barbers }) {
         <h2>Daftar Barber</h2>
         <ul className="card-container">
           {barbers.map((barber) => (
-            <li key={barber.barberId} className="card" role="button" tabIndex={0}>
+            <li
+              key={barber.barberId}
+              className="card"
+              role="button"
+              tabIndex={0}
+            >
               <p>Nama: {barber.barberName}</p>
               <p>Experience: {barber.experience}</p>
               <p>Skills: {barber.skills}</p>

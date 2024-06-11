@@ -7,15 +7,12 @@ function BookingList({ bookings }) {
   return (
     <>
       <h1 className="booking-list">Daftar List booking</h1>
-      <ul className="card-container">
+      <ul className="card-container-booking">
         {bookings.map((booking) => (
           <li key={booking.bookingId} className="card">
             <p>Customer Name: {booking.customer.customerName}</p>
-            <p>Customer ID: {booking.customer._id}</p>
-            <p>Barber Name: {booking.barber._id}</p>
-            <p>Barber ID: {booking.barber._id}</p>
+            <p>Barber Name: {booking.barber.barberName}</p>
             <p>Service Name: {booking.service.serviceName}</p>
-            <p>Service ID: {booking.service._id}</p>
             <p>Tanggal: {booking.date}</p>
             <p>Waktu: {booking.time}</p>
             <p>Tempat: {booking.place}</p>
@@ -34,15 +31,12 @@ BookingList.propTypes = {
       bookingId: PropTypes.string.isRequired,
       customer: PropTypes.shape({
         customerName: PropTypes.string.isRequired,
-        _id: PropTypes.string.isRequired,
       }).isRequired,
       barber: PropTypes.shape({
         barberName: PropTypes.string.isRequired,
-        _id: PropTypes.string.isRequired,
       }).isRequired,
       service: PropTypes.shape({
         serviceName: PropTypes.string.isRequired,
-        _id: PropTypes.string.isRequired,
       }).isRequired,
       date: PropTypes.string.isRequired,
       time: PropTypes.string.isRequired,

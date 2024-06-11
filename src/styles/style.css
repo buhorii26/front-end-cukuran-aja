@@ -451,6 +451,11 @@ input[type="time"] {
   font-size: 1.4rem;
   line-height: 1.6;
 }
+/* card container booking */
+.card-container-booking {
+  gap: 2rem;
+  display: flex;
+}
 /* Card Container */
 .card-container {
   padding: 5rem 7% 1.4rem;
