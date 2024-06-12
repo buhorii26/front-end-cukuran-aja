@@ -11,8 +11,30 @@ function CustomerInput({ createCustomer }) {
   const [province, setProvince] = useInput("");
   const [phone, setPhone] = useInput("");
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!customerName || !gender || !address || !city || !province || !phone) {
+      alert("Semua field harus diisi!");
+      return;
+    }
+    try {
+      await createCustomer({
+        customerName,
+        gender,
+        address,
+        city,
+        province,
+        phone,
+      });
+      alert("Biodata berhasil di input");
+    } catch (error) {
+      alert(`Error: ${error.message}`);
+    }
+  };
+
   return (
-    <form className="customer-input">
+    <form className="customer-input" onSubmit={handleSubmit}>
       <input
         type="text"
         value={customerName}
@@ -48,12 +70,7 @@ function CustomerInput({ createCustomer }) {
         onChange={setPhone}
         placeholder="masukkan no hp mu"
       />
-      <button
-        type="submit"
-        onClick={() => createCustomer({ customerName, gender, address, city, province, phone })}
-      >
-        Save
-      </button>
+      <button type="submit">Save</button>
     </form>
   );
 }

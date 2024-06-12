@@ -312,7 +312,7 @@ const api = (() => {
     return barber;
   }
 
-  async function createService({ serviceName, price }) {
+  async function createService({ serviceName, description, price }) {
     const response = await _fetchWithAuth(`${BASE_URL}/services`, {
       method: 'POST',
       headers: {
@@ -320,6 +320,7 @@ const api = (() => {
       },
       body: JSON.stringify({
         serviceName,
+        description,
         price,
       }),
     });

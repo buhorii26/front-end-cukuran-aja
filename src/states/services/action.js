@@ -47,11 +47,11 @@ function asyncReceiveServices() {
   };
 }
 
-function asyncCreateService({ serviceName, price }) {
+function asyncCreateService({ serviceName, description, price }) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
-      const service = await api.createService({ serviceName, price });
+      const service = await api.createService({ serviceName, description, price });
       dispatch(createServiceActionCreator(service));
     } catch (error) {
       alert(error.message);

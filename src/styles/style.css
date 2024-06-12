@@ -196,11 +196,34 @@ body {
   margin-left: 8px;
   margin-top: 8px;
 }
+/* Service Input */
+.service-input input[type="text"] {
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--color);
+  border: 1px solid;
+  padding: 8px;
+  width: 100%;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+.service-input button {
+  background-color: blue;
+  font-family: "Open Sans", sans-serif;
+  color: var(--background-color);
+  font-weight: 600;
+  font-size: 15px;
+  border: 2px solid black;
+  width: 100%;
+  padding: 8px;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
 /* Booking Input */
 .booking-input {
   margin-top: 10px;
 }
 .booking-input input[type="text"],
+select,
 input[type="date"],
 input[type="time"] {
   font-family: "Open Sans", sans-serif;
@@ -210,11 +233,6 @@ input[type="time"] {
   width: 100%;
   font-size: 15px;
   margin-bottom: 8px;
-}
-
-.booking-input textarea {
-  height: 150px;
-  resize: none;
 }
 
 .booking-input button {
@@ -259,7 +277,9 @@ input[type="time"] {
   margin-bottom: 50px;
 }
 /* Add Customer Input */
-.customer-input input[type="text"],
+.customer-input 
+input[type="text"],
+select,
 .customer-input textarea {
   font-family: "Open Sans", sans-serif;
   background-color: var(--color);
@@ -623,7 +643,6 @@ input[type="time"] {
   margin-top: 200px;
   justify-content: center;
   display: flex;
-
 }
 /* List */
 .customer-list,

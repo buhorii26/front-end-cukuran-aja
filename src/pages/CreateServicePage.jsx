@@ -13,8 +13,8 @@ function CreateServicePage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { authUser } = useSelector((states) => states);
-  const onCreateService = ({ serviceName, price }) => {
-    dispatch(asyncCreateService({ serviceName, price }));
+  const onCreateService = ({ serviceName, description, price }) => {
+    dispatch(asyncCreateService({ serviceName, description, price }));
     navigate('/services');
   };
   if (authUser === null) {

@@ -5,15 +5,37 @@ import useInput from "../hooks/useInput";
 
 function ServiceInput({ createService }) {
   const [serviceName, setServiceName] = useInput("");
+  const [description, setDescription] = useInput("");
   const [price, setPrice] = useInput("");
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!serviceName || !description || !price) {
+      alert("Semua field harus diisi!");
+      return;
+    }
+    try {
+      await createService({ serviceName, description, price });
+      alert("Service berhasil dibuat");
+    } catch (error) {
+      alert(`Error: ${error.message}`);
+    }
+  };
+
   return (
-    <form className="service-input">
+    <form className="service-input" onSubmit={handleSubmit}>
       <input
         type="text"
         value={serviceName}
         onChange={setServiceName}
-        placeholder="Masukkan nama service"
+        placeholder="Masukkan Nama Pelayanan"
+      />
+      <input
+        type="text"
+        value={description}
+        onChange={setDescription}
+        placeholder="Masukkan Deskripsi Pelayanan"
       />
       <input
         type="text"
@@ -21,12 +43,7 @@ function ServiceInput({ createService }) {
         onChange={setPrice}
         placeholder="masukkan price"
       />
-      <button
-        type="submit"
-        onClick={() => createService({ serviceName, price })}
-      >
-        Save
-      </button>
+      <button type="submit">Save</button>
     </form>
   );
 }
