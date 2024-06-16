@@ -13,8 +13,41 @@ function BarberInput({ createBarber }) {
   const [experience, setExperience] = useInput("");
   const [skills, setSkills] = useInput("");
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (
+      !barberName ||
+      !gender ||
+      !address ||
+      !city ||
+      !province ||
+      !phone ||
+      !experience ||
+      !skills
+    ) {
+      alert("Semua field harus diisi!");
+      return;
+    }
+    try {
+      await createBarber({
+        barberName,
+        gender,
+        address,
+        city,
+        province,
+        phone,
+        experience,
+        skills,
+      });
+      alert("Biodata berhasil di input");
+    } catch (error) {
+      alert(`Error: ${error.message}`);
+    }
+  };
+
   return (
-    <form className="barber-input">
+    <form className="barber-input" onSubmit={handleSubmit}>
       <input
         type="text"
         value={barberName}
@@ -62,12 +95,7 @@ function BarberInput({ createBarber }) {
         onChange={setSkills}
         placeholder="masukkan skilss mu"
       />
-      <button
-        type="submit"
-        onClick={() => createBarber({ barberName, gender, address, city, province, phone, experience, skills })}
-      >
-        Save
-      </button>
+      <button type="submit">Save</button>
     </form>
   );
 }

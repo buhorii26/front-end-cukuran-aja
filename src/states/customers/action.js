@@ -47,11 +47,11 @@ function asyncReceiveCustomers() {
   };
 }
 
-function asyncCreateCustomer({ user, customerName, gender, address, city, province, phone }) {
+function asyncCreateCustomer({ customerName, gender, address, city, province, phone }) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
-      const customer = await api.createCustomer({ user, customerName, gender, address, city, province, phone });
+      const customer = await api.createCustomer({ customerName, gender, address, city, province, phone });
       dispatch(createCustomerActionCreator(customer));
     } catch (error) {
       alert(error.message);

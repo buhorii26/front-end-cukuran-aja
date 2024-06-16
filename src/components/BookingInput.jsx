@@ -10,7 +10,7 @@ function BookingInput({ createBooking }) {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [place, setPlace] = useState("");
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState("Booked");
 
   const [customers, setCustomers] = useState([]);
   const [barbers, setBarbers] = useState([]);
@@ -101,6 +101,7 @@ function BookingInput({ createBooking }) {
         onChange={(e) => setStatus(e.target.value)}
         placeholder="Masukkan Status"
         required
+        disabled
       />
       <button type="submit">
         Order

@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 function DetailService({ service }) {
   const { authUser } = useSelector((states) => states);
@@ -35,7 +34,6 @@ function DetailService({ service }) {
         />
         <p>Nama Pelayanan: {service.serviceName}</p>
         <p>Harga: {formatPrice(service.price)}</p>
-        <p><Link to='/services/new'>Add Services</Link></p>
       </div>
     </div>
     );

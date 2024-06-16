@@ -2,8 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncReceiveBookings } from "../../states/bookings/action";
-import {  asyncCheckAuthUser } from '../../states/authUser/action';
+import {  asyncCheckAuthUser } from "../../states/authUser/action";
+import { asyncReceiveBarbers } from "../../states/barbers/action";
 import Loading from '../../components/Loading';
+import { Link } from "react-router-dom";
 import BookingList from "../../components/BookingList";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -17,6 +19,7 @@ function DashboardBarberPage() {
 
   useEffect(() => {
     dispatch(asyncReceiveBookings());
+    dispatch(asyncReceiveBarbers());
   }, [dispatch]);
 
   useEffect(() => {
@@ -61,6 +64,7 @@ function DashboardBarberPage() {
       <div className="alert">
         <Alert variant="success">Selamat anda sudah login!</Alert>
       </div>
+      <h1>Isi biodata <Link to='/barbers/new'>disini</Link></h1>
       <BookingList bookings={bookings} />
     </>
   );

@@ -1,12 +1,18 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
+import { asyncReceiveCustomers } from "../states/customers/action";
 
 function BarberList({ barbers }) {
   const { customers } = useSelector((states) => states);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(asyncReceiveCustomers());
+  }, [dispatch]);
 
   const onBarberClick = (id) => {
     if (!customers || customers.length === 0) {

@@ -47,11 +47,11 @@ function asyncReceiveBarbers() {
   };
 }
 
-function asyncCreateBarber({ user, barberName, gender, address, city, province, phone, experience, skills }) {
+function asyncCreateBarber({ barberName, gender, address, city, province, phone, experience, skills }) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
-      const barber = await api.createBarber({ user, barberName, gender, address, city, province, phone, experience, skills });
+      const barber = await api.createBarber({ barberName, gender, address, city, province, phone, experience, skills });
       dispatch(createBarberActionCreator(barber));
     } catch (error) {
       alert(error.message);

@@ -15,7 +15,7 @@ function CreateBarberPage() {
   const { authUser } = useSelector((states) => states);
   const onCreateBarber = ({ barberName, gender, address, city, province, phone, experience, skills }) => {
     dispatch(asyncCreateBarber({ barberName, gender, address, city, province, phone, experience, skills }));
-    navigate('/barbers');
+    navigate('/');
   };
   if (authUser === null) {
     return (

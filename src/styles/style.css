@@ -277,8 +277,7 @@ input[type="time"] {
   margin-bottom: 50px;
 }
 /* Add Customer Input */
-.customer-input 
-input[type="text"],
+.customer-input input[type="text"],
 select,
 .customer-input textarea {
   font-family: "Open Sans", sans-serif;
@@ -328,7 +327,7 @@ select,
 /* container authuser */
 .container-authuser {
   display: flex;
-  margin-top: 150px;
+  margin-top: 180px;
   justify-content: center;
   text-align: center;
 }
@@ -475,6 +474,10 @@ select,
 .card-container-booking {
   gap: 2rem;
   display: flex;
+  justify-content: center;
+  font-size: 15px;
+  padding-right: 50px;
+  border-radius: 10px;
 }
 /* Card Container */
 .card-container {
@@ -482,6 +485,13 @@ select,
   margin-top: 100px;
   gap: 2rem;
   display: flex;
+  justify-content: center;
+}
+.card-container button {
+  gap: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-left: 40px;
 }
 .card-container-role {
   padding: 1.2rem;
@@ -497,6 +507,7 @@ select,
   text-align: center;
   font-size: 2.6rem;
   align-items: center;
+  margin-left: 40px;
   display: flex;
 }
 .card-container h2 span {
@@ -504,16 +515,18 @@ select,
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 2500px;
   background-color: black;
-  margin: auto;
-  text-align: center;
+  max-width: 350px;
+  margin-left: 30px;
   font-family: arial;
+  display: flex;
+  justify-content: center;
 }
 
 .card h3 {
   color: white;
   font-size: 22px;
+  margin: auto;
 }
 
 .card button {
@@ -527,6 +540,7 @@ select,
   cursor: pointer;
   width: 50%;
   font-size: 18px;
+  margin: auto;
 }
 
 .card button:hover {
@@ -640,7 +654,7 @@ select,
 }
 /* Booking list */
 .booking-list {
-  margin-top: 200px;
+  margin-top: 150px;
   justify-content: center;
   display: flex;
 }
@@ -786,11 +800,14 @@ footer .credit a {
     right: 0;
   }
   .navbar .navbar-list a {
-    color: var(--bg);
+    color: var(--color);
     display: block;
     margin: 1.5rem;
     padding: 0.5rem;
     font-size: 2rem;
+  }
+  .navbar .navbar-list a:hover {
+    background-color: #f5810e;
   }
   .navbar .navbar-list a::after {
     transform-origin: 0 0;
@@ -798,33 +815,61 @@ footer .credit a {
   .navbar .navbar-list a:hover::after {
     transform: scaleX(0.2);
   }
-  .navbar .search-form {
-    width: 90%;
-    right: 2rem;
-  }
-  .about .row {
+  .barber-list,
+  .card-container,
+  .about {
     flex-wrap: wrap;
   }
-  .about .row .content {
-    padding: 0;
-  }
-  .about .row .content h3 {
-    margin-top: 1rem;
-    font-size: 2rem;
-  }
-  .menu p {
-    font-size: 1.4rem;
-  }
-  .contact .row {
+  .booking-list {
+    display: flex;
     flex-wrap: wrap;
   }
-  .contact .row .map {
-    height: 30rem;
+  .card p {
+    margin-left: 70px;
+    flex-direction: row;
   }
-  .contact .row form {
-    padding-top: 0;
+  .hero {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 88vh;
   }
-  .modal-content {
+  .login-page {
+    min-height: 88vh;
+  }
+  .register-page {
+    min-height: 88vh;
+  }
+  .register-page__main {
+    margin-top: 90px;
+  }
+  .register-page__main p {
+    font-size: 12px;
+  }
+  .login-page__main p {
+    font-size: 12px;
+  }
+  .about {
+    min-height: 79vh;
+  }
+  .card {
+    font-size: 15px;
+    padding-right: 40px;
+    border-radius: 10px;
+  }
+  .card h3 {
+    margin-left: 115px;
+  }
+  .card-container button {
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    margin-left: 40px;
+  }
+  .card-container-booking {
+    gap: 2rem;
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
   }
 }
