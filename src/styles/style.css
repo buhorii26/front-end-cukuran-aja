@@ -171,13 +171,18 @@ body {
   border-radius: 10px;
   cursor: pointer;
 }
-/* Detail Barber */
-.detailBarber-page {
+/* Detail Barber  dan Customer */
+.detailBarber-page, .detailCustomer-page {
   margin-top: 150px;
   min-height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+/* Detal Cust Span */
+.detail-cust-span {
+  color: blue;
+  text-decoration: underline;
 }
 /* Add Customer */
 .add-customer-page {

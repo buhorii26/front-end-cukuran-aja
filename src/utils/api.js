@@ -178,9 +178,9 @@ const api = (() => {
       throw new Error(message);
     }
 
-    const { data: { customer } } = responseJson;
+    const { data: { detailCustomer } } = responseJson;
 
-    return customer;
+    return detailCustomer;
   }
 
   async function updateCustomer(customerId) {

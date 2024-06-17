@@ -9,6 +9,7 @@ import CreateServicePage from "./pages/CreateServicePage";
 import DashboardCustomerPage from "./pages/dashboard-customer/DashboardCustomerPage";
 import AboutPage from "./pages/AboutPage";
 import ServicePage from "./pages/services/ServicePage";
+import DetailCustomerPage from "./pages/dashboard-customer/DetailCustomerPage";
 import DetailBarberPage from "./pages/dashboard-barber/DetailBarberPage";
 import DetailServicePage from "./pages/services/DetailServicePage";
 import CreateBookingPage from "./pages/bookings/CreateBookingPage";
@@ -29,6 +30,7 @@ function App() {
       <Route path="/about" element={<AboutPage />} />
       <Route path="/services" element={<ServicePage />} />
       <Route path="/services/new" element={<CreateServicePage />} />
+      <Route path="/customers/:id" element={<DetailCustomerPage />} />
       <Route path="/barbers/:id" element={<DetailBarberPage />} />
       <Route path="/services/:id" element={<DetailServicePage />} />
     </Routes>

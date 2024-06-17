@@ -3,6 +3,7 @@ import { loadingBarReducer } from 'react-redux-loading-bar';
 import authUserReducer from "./authUser/reducer";
 import usersReducer from "./users/reducer";
 import customersReducer from "./customers/reducer";
+import detailCustomerReducer from "./detailCustomer/reducer";
 import detailBarberReducer from "./detailBarber/reducer";
 import detailServiceReducer from "./detailService/reducer";
 import barbersReducer from "./barbers/reducer";
@@ -14,6 +15,7 @@ const store = configureStore({
     authUser: authUserReducer,
     users: usersReducer,
     customers: customersReducer,
+    detailCustomer: detailCustomerReducer,
     detailBarber: detailBarberReducer,
     detailService: detailServiceReducer,
     barbers: barbersReducer,

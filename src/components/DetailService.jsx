@@ -49,6 +49,7 @@ function DetailService({ service }) {
           width="100px"
         />
         <p>Nama Pelayanan: {service.serviceName}</p>
+        <p>Deskripsi: {service.description}</p>
         <p>Harga: {formatPrice(service.price)}</p>
       </div>
     </div>
@@ -59,6 +60,7 @@ DetailService.propTypes = {
   service: PropTypes.shape({
     serviceId: PropTypes.string.isRequired,
     serviceName: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
   }),
 };
