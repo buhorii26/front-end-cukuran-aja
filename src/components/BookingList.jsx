@@ -38,7 +38,7 @@ function BookingList({ bookings }) {
       <h1 className="booking-list">Daftar List Booking</h1>
       <ul className="card-container-booking">
         {bookings.map((booking) => (
-          <li key={booking.bookingId} className="card">
+          <li key={booking.bookingId} className="card"> 
             <p>
               Customer Name: {booking.customer.customerName}
               <span

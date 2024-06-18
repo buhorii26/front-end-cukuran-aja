@@ -10,9 +10,10 @@ import Footer from "../../components/Footer";
 import Alert from "react-bootstrap/Alert";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
 function BookingListPage() {
   const dispatch = useDispatch();
-  const bookings = useSelector((state) => state.bookings);
+  const { bookings } = useSelector((states) => states);
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -29,14 +30,15 @@ function BookingListPage() {
     return (
       <>
         <Header />
-        <Loading />
-        <div className="content">
-          <Alert variant="danger">Maaf anda belum login!</Alert>
+        <h1 className="booking-list">Daftar List Booking</h1>
+        <div className="container-authuser">
+          <Alert variant="danger">Belum ada data Bookings!</Alert>
         </div>
         <Footer />
       </>
     );
   }
+
 
   return (
     <>

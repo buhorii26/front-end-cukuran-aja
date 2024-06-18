@@ -12,7 +12,6 @@ function Main() {
   if (authUser === null) {
     return (
       <>
-        <Loading />
         <main className="hero" id="home">
           <div className="content">
             <h1>
@@ -28,8 +27,18 @@ function Main() {
     );
   }
   if (authUser.role === "barber") {
-    return <DashboardBarberPage />;
+    return (
+      <>
+        <Loading />
+        <DashboardBarberPage />
+      </>
+    );
   }
-  return <DashboardCustomerPage />;
+  return (
+    <>
+      <Loading />
+      <DashboardCustomerPage />
+    </>
+  );
 }
 export default Main;

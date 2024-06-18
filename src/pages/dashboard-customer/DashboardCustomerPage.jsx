@@ -3,11 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncReceiveBarbers } from "../../states/barbers/action";
 import { asyncCheckAuthUser } from "../../states/authUser/action";
-import Loading from "../../components/Loading";
 import { Link } from "react-router-dom";
 import BarberList from "../../components/BarberList";
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import Alert from "react-bootstrap/Alert";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -30,11 +28,10 @@ function DashboardCustomerPage() {
     return (
       <>
         <Header />
-        <Loading />
-        <div className="content">
-          <Alert variant="danger">Maaf anda belum login!</Alert>
+        <h1 className="booking-list">Daftar List Barber</h1>
+        <div className="container-authuser">
+          <Alert variant="danger">Belum ada data Barbers!</Alert>
         </div>
-        <Footer />
       </>
     );
   }
@@ -42,7 +39,6 @@ function DashboardCustomerPage() {
   return (
     <>
       <Header />
-      <Loading />
       <div className="container-authuser">
         <h1>
           Selamat Datang {""}
