@@ -35,6 +35,7 @@ function BookingList({ bookings }) {
   };
   return (
     <>
+    <div className="container-ul-bookings">
       <h1 className="booking-list">Daftar List Booking</h1>
       <ul className="card-container-booking">
         {bookings.map((booking) => (
@@ -84,6 +85,7 @@ function BookingList({ bookings }) {
           </li>
         ))}
       </ul>
+      </div>
     </>
   );
 }

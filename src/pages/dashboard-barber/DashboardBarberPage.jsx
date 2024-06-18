@@ -7,7 +7,6 @@ import { asyncReceiveBarbers } from "../../states/barbers/action";
 import { Link } from "react-router-dom";
 import BookingList from "../../components/BookingList";
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import Alert from "react-bootstrap/Alert";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -32,10 +31,9 @@ function DashboardBarberPage() {
       <>
         <Header />
         <h1 className="booking-list">Daftar List Booking</h1>
-        <div className="container-authuser">
+        <div className="bookings-zero">
           <Alert variant="danger">Belum ada data Bookings!</Alert>
         </div>
-        <Footer />
       </>
     );
   }

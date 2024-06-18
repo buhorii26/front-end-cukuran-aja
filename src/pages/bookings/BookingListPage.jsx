@@ -31,7 +31,7 @@ function BookingListPage() {
       <>
         <Header />
         <h1 className="booking-list">Daftar List Booking</h1>
-        <div className="container-authuser">
+        <div className="bookings-zero">
           <Alert variant="danger">Belum ada data Bookings!</Alert>
         </div>
         <Footer />

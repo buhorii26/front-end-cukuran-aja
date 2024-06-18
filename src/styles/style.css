@@ -475,6 +475,9 @@ select,
   font-size: 1.4rem;
   line-height: 1.6;
 }
+.container-ul-bookings {
+  min-height: 60vh;
+}
 /* card container booking */
 .card-container-booking {
   gap: 2rem;
@@ -775,6 +778,9 @@ footer .credit a {
   margin-top: 1.6rem;
   padding: 1rem 1.6rem;
 }
+.bookings-zero {
+  min-height: 50vh;
+}
 
 /*Media Query Responsive WEB*/
 /*Laptop*/
@@ -876,6 +882,12 @@ footer .credit a {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+  }
+  .container-ul-bookings {
+    min-height: 65vh;
+  }
+  .bookings-zero {
+    min-height: 70vh;
   }
 }
 
