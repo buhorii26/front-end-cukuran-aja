@@ -12,13 +12,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function BookingListPage() {
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(true);
   const bookings = useSelector((state) => state.bookings);
 
   useEffect(() => {
     const checkAuth = async () => {
       await dispatch(asyncCheckAuthUser());
-      setIsLoading(false);
     };
     checkAuth();
   }, [dispatch]);
@@ -27,14 +25,11 @@ function BookingListPage() {
     dispatch(asyncReceiveBookings());
   }, [dispatch]);
 
-  if (isLoading) {
-    return <Loading />;
-  }
-
   if (!bookings || bookings.length === 0) {
     return (
       <>
         <Header />
+        <Loading />
         <div className="content">
           <Alert variant="danger">Maaf anda belum login!</Alert>
         </div>
@@ -46,6 +41,7 @@ function BookingListPage() {
   return (
     <>
       <Header />
+      <Loading />
       <BookingList bookings={bookings} />
       <Footer />
     </>

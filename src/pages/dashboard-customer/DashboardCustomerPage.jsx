@@ -13,7 +13,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function DashboardCustomerPage() {
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(true);
   const { barbers, authUser } = useSelector((states) => states);
 
   useEffect(() => {
@@ -23,19 +22,15 @@ function DashboardCustomerPage() {
   useEffect(() => {
     const checkAuth = async () => {
       await dispatch(asyncCheckAuthUser());
-      setIsLoading(false);
     };
     checkAuth();
   }, [dispatch]);
-
-  if (isLoading) {
-    return <Loading />;
-  }
 
   if (!barbers || barbers.length === 0) {
     return (
       <>
         <Header />
+        <Loading />
         <div className="content">
           <Alert variant="danger">Maaf anda belum login!</Alert>
         </div>
@@ -47,6 +42,7 @@ function DashboardCustomerPage() {
   return (
     <>
       <Header />
+      <Loading />
       <div className="container-authuser">
         <h1>
           Selamat Datang {""}
