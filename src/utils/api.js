@@ -1,6 +1,7 @@
 const api = (() => {
-  const BASE_URL = "https://rest-api-cukuranaja-production.up.railway.app/api/v1";
-  
+  const BASE_URL =
+    "https://rest-api-cukuranaja-production.up.railway.app/api/v1";
+
   function getAccessToken() {
     return localStorage.getItem("accessToken");
   }
@@ -8,7 +9,6 @@ const api = (() => {
   function putAccessToken(token) {
     return localStorage.setItem("accessToken", token);
   }
-
 
   async function _fetchWithAuth(url, options = {}) {
     return fetch(url, {
@@ -36,8 +36,9 @@ const api = (() => {
 
     const responseJson = await response.json();
     const { status, message } = responseJson;
-
-    if (status !== "success") {
+    if (status === "success") {
+      alert("Register Success");
+    } else {
       throw new Error(message);
     }
 
@@ -82,11 +83,13 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { users } } = responseJson;
+    const {
+      data: { users },
+    } = responseJson;
 
     return users;
   }
@@ -98,11 +101,13 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { user } } = responseJson;
+    const {
+      data: { user },
+    } = responseJson;
 
     return user;
   }
@@ -114,20 +119,29 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { user } } = responseJson;
+    const {
+      data: { user },
+    } = responseJson;
 
     return user;
   }
 
-  async function createCustomer({ customerName, gender, address, city, province, phone }) {
+  async function createCustomer({
+    customerName,
+    gender,
+    address,
+    city,
+    province,
+    phone,
+  }) {
     const response = await _fetchWithAuth(`${BASE_URL}/customers`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         customerName,
@@ -135,7 +149,7 @@ const api = (() => {
         address,
         city,
         province,
-        phone
+        phone,
       }),
     });
 
@@ -143,11 +157,13 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { customer } } = responseJson;
+    const {
+      data: { customer },
+    } = responseJson;
 
     return customer;
   }
@@ -158,11 +174,13 @@ const api = (() => {
     const responseJson = await response.json();
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { customers } } = responseJson;
+    const {
+      data: { customers },
+    } = responseJson;
 
     return customers;
   }
@@ -174,27 +192,33 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { detailCustomer } } = responseJson;
+    const {
+      data: { detailCustomer },
+    } = responseJson;
 
     return detailCustomer;
   }
 
   async function updateCustomer(customerId) {
-    const response = await _fetchWithAuth(`${BASE_URL}/customers/${customerId}`);
+    const response = await _fetchWithAuth(
+      `${BASE_URL}/customers/${customerId}`
+    );
 
     const responseJson = await response.json();
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { customer } } = responseJson;
+    const {
+      data: { customer },
+    } = responseJson;
 
     return customer;
   }
@@ -206,20 +230,31 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { customer } } = responseJson;
+    const {
+      data: { customer },
+    } = responseJson;
 
     return customer;
   }
 
-  async function createBarber({ barberName, gender, address, city, province, phone, experience, skills }) {
+  async function createBarber({
+    barberName,
+    gender,
+    address,
+    city,
+    province,
+    phone,
+    experience,
+    skills,
+  }) {
     const response = await _fetchWithAuth(`${BASE_URL}/barbers`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         barberName,
@@ -229,7 +264,7 @@ const api = (() => {
         province,
         phone,
         experience,
-        skills
+        skills,
       }),
     });
 
@@ -237,11 +272,13 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { barber } } = responseJson;
+    const {
+      data: { barber },
+    } = responseJson;
 
     return barber;
   }
@@ -253,11 +290,13 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { barbers } } = responseJson;
+    const {
+      data: { barbers },
+    } = responseJson;
 
     return barbers;
   }
@@ -267,13 +306,15 @@ const api = (() => {
 
     const responseJson = await response.json();
 
-    const { status, message  } = responseJson;
+    const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { detailBarber } } = responseJson;
+    const {
+      data: { detailBarber },
+    } = responseJson;
 
     return detailBarber;
   }
@@ -285,11 +326,13 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { barber } } = responseJson;
+    const {
+      data: { barber },
+    } = responseJson;
 
     return barber;
   }
@@ -301,20 +344,22 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { barber } } = responseJson;
+    const {
+      data: { barber },
+    } = responseJson;
 
     return barber;
   }
 
   async function createService({ serviceName, description, price }) {
     const response = await _fetchWithAuth(`${BASE_URL}/services`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         serviceName,
@@ -327,11 +372,13 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { service } } = responseJson;
+    const {
+      data: { service },
+    } = responseJson;
 
     return service;
   }
@@ -343,11 +390,13 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { services } } = responseJson;
+    const {
+      data: { services },
+    } = responseJson;
 
     return services;
   }
@@ -359,11 +408,13 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { detailService } } = responseJson;
+    const {
+      data: { detailService },
+    } = responseJson;
 
     return detailService;
   }
@@ -375,11 +426,13 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { service } } = responseJson;
+    const {
+      data: { service },
+    } = responseJson;
 
     return service;
   }
@@ -391,20 +444,30 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { service } } = responseJson;
+    const {
+      data: { service },
+    } = responseJson;
 
     return service;
   }
 
-  async function createBooking({ customer, barber, service, date, time, place, status }) {
+  async function createBooking({
+    customer,
+    barber,
+    service,
+    date,
+    time,
+    place,
+    status,
+  }) {
     const response = await _fetchWithAuth(`${BASE_URL}/bookings`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         customer,
@@ -427,7 +490,9 @@ const api = (() => {
       throw new Error(message);
     }
 
-    const { data: { newBooking } } = responseJson;
+    const {
+      data: { newBooking },
+    } = responseJson;
 
     return newBooking;
   }
@@ -439,11 +504,13 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { bookings } } = responseJson;
+    const {
+      data: { bookings },
+    } = responseJson;
 
     return bookings;
   }
@@ -455,11 +522,13 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { booking } } = responseJson;
+    const {
+      data: { booking },
+    } = responseJson;
 
     return booking;
   }
@@ -471,11 +540,13 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { booking } } = responseJson;
+    const {
+      data: { booking },
+    } = responseJson;
 
     return booking;
   }
@@ -487,16 +558,16 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== 'success') {
+    if (status !== "success") {
       throw new Error(message);
     }
 
-    const { data: { booking } } = responseJson;
+    const {
+      data: { booking },
+    } = responseJson;
 
     return booking;
   }
-
-
 
   return {
     getAccessToken,
@@ -525,7 +596,7 @@ const api = (() => {
     getAllBookings,
     getBookingById,
     updateBooking,
-    deleteBooking
+    deleteBooking,
   };
 })();
 
